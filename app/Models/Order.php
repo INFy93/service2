@@ -18,4 +18,8 @@ class Order extends Model
     {
         return $this->hasOne(User::class, 'id', 'manager_id');
     }
+    public function statuses()
+    {
+        return $this->hasOne(Status::class, 'status_id', 'status');
+    }
 }
