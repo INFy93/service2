@@ -4,7 +4,7 @@
             <thead>
                 <tr>
                     <th
-                        v-if="selectedService == userService || is_admin"
+
                         class="px-2 py-4 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider"
                     >
                         <input
@@ -74,7 +74,7 @@
                     <td
                         class="px-2 w-12 py-2 font-medium text-sm whitespace-no-wrap border-b border-gray-200"
                     >
-                    {{ order.id }}
+                    {{ leadingZeros(order.id) }}
                     </td>
                     <td
                         class="px-2 w-12 py-2 font-medium text-sm whitespace-no-wrap border-b border-gray-200"
@@ -84,13 +84,28 @@
                     <td
                         class="px-2 w-12 py-2 font-medium text-sm whitespace-no-wrap border-b border-gray-200"
                     >
-                    {{ order.users.name }}
-                    {{ order.created_at }}
+                    <div class="flex items-center">
+                            <div>
+                                <div
+                                    class="text-sm leading-5 font-medium text-gray-700"
+                                >
+                                    {{ order.users.name }}
+                                </div>
+                                <div class="text-sm leading-5 text-gray-500">
+                                    {{ correctTime(order.created_at) }}
+                                </div>
+                            </div>
+                        </div>
                     </td>
                     <td
                         class="px-2 w-12 py-2 font-medium text-sm whitespace-no-wrap border-b border-gray-200"
                     >
                     {{ order.model }}
+                    </td>
+                    <td
+                        class="px-2 w-12 py-2 font-medium text-sm whitespace-no-wrap border-b border-gray-200"
+                    >
+                    {{ order.model_full_name }}
                     </td>
                     <td
                         class="px-2 w-12 py-2 font-medium text-sm whitespace-no-wrap border-b border-gray-200"
@@ -105,7 +120,18 @@
                     <td
                         class="px-2 w-12 py-2 font-medium text-sm whitespace-no-wrap border-b border-gray-200"
                     >
-                    {{ order.client_login }}
+                    <div class="flex items-center">
+                            <div>
+                                <div
+                                    class="text-sm leading-5 font-medium text-gray-700"
+                                >
+                                    {{ order.client_login }}
+                                </div>
+                                <div class="text-sm leading-5 text-gray-500">
+                                    {{ order.client_phone }}
+                                </div>
+                            </div>
+                        </div>
                     </td>
                 </tr>
             </tbody>
@@ -115,17 +141,20 @@
 
 <script>
 import useOrders from "../../composables/orders/orders"
+import useHelpers from "../../composables/common/common"
 import { onMounted } from "vue"
 
 export default {
     setup () {
         const {orders, userService, getOrders} = useOrders()
-
+        const { correctTime, leadingZeros } = useHelpers()
         onMounted(getOrders)
 
         return {
             orders,
-            userService
+            userService,
+            correctTime,
+            leadingZeros
         }
     }
 }
