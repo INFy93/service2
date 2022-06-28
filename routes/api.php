@@ -18,5 +18,6 @@ use Illuminate\Support\Facades\Route;
 Route::group(['middleware' => ['auth']], function () {
 
     Route::get('/orders', [OrderController::class, 'getOrders']);
+    Route::post('/change_status', [OrderController::class, 'changeStatus']);
 
 });

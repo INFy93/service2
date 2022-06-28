@@ -111,7 +111,7 @@
                                                 status_id="1"
                                                 @click.stop.prevent
                                                 @click="
-                                                    change_status(1, order.id)
+                                                    changeStatus(1, order.id)
                                                 "
                                                 class="block py-1 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
                                                 >Новый</a
@@ -123,7 +123,7 @@
                                                 status_id="2"
                                                 @click.stop.prevent
                                                 @click="
-                                                    change_status(2, order.id)
+                                                    changeStatus(2, order.id)
                                                 "
                                                 class="block py-1 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
                                                 >В работе</a
@@ -137,7 +137,7 @@
                                                 status_id="3"
                                                 @click.stop.prevent
                                                 @click="
-                                                    change_status(3, order.id)
+                                                    changeStatus(3, order.id)
                                                 "
                                                 class="block py-1 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
                                                 >На согласовании</a
@@ -149,7 +149,7 @@
                                                 ref="status4"
                                                 @click.stop.prevent
                                                 @click="
-                                                    change_status(4, order.id)
+                                                    changeStatus(4, order.id)
                                                 "
                                                 class="block py-1 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
                                                 >Ждет запчасть</a
@@ -163,7 +163,7 @@
                                                 status_id="5"
                                                 @click.stop.prevent
                                                 @click="
-                                                    change_status(5, order.id)
+                                                    changeStatus(5, order.id)
                                                 "
                                                 class="block py-1 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
                                                 >Готов</a
@@ -175,7 +175,7 @@
                                                 status_id="6"
                                                 @click.stop.prevent
                                                 @click="
-                                                    change_status(6, order.id)
+                                                    changeStatus(6, order.id)
                                                 "
                                                 class="block py-1 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
                                                 >Закрыт</a
@@ -189,7 +189,7 @@
                                                 status_id="7"
                                                 @click.stop.prevent
                                                 @click="
-                                                    change_status(7, order.id)
+                                                    changeStatus(7, order.id)
                                                 "
                                                 class="block py-1 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
                                                 >Отказ</a
@@ -288,15 +288,19 @@ import useHelpers from "../../composables/common/common";
 import { onMounted } from "vue";
 export default {
     setup() {
-        const { orders, userService, getOrders } = useOrders();
+        const { orders, getOrders, newStatus } = useOrders();
         const { correctDate, leadingZeros } = useHelpers();
         onMounted(getOrders);
-
+        const changeStatus = async(status_id, order_id) => {
+            await newStatus(status_id, order_id);
+            await getOrders();
+        }
         return {
             orders,
             correctDate,
             leadingZeros,
             getOrders,
+            changeStatus
         };
     },
 };
