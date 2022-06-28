@@ -1,10 +1,9 @@
 <template>
-<div>
-   <table class="w-full">
+    <div>
+        <table class="w-full">
             <thead>
                 <tr>
                     <th
-
                         class="px-2 py-4 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider"
                     >
                         <input
@@ -58,9 +57,10 @@
                 </tr>
             </thead>
             <tbody>
-                <tr class="number hover:bg-gray-200 transition-all duration-400"
-                v-for="order in orders.data"
-                :key="order.id"
+                <tr
+                    class="number hover:bg-gray-200 transition-all duration-400"
+                    v-for="order in orders.data"
+                    :key="order.id"
                 >
                     <td
                         class="px-2 w-12 py-2 font-medium text-sm whitespace-no-wrap border-b border-gray-200"
@@ -74,17 +74,17 @@
                     <td
                         class="px-2 w-12 py-2 font-medium text-sm whitespace-no-wrap border-b border-gray-200"
                     >
-                    {{ leadingZeros(order.id) }}
+                        {{ leadingZeros(order.id) }}
                     </td>
                     <td
                         class="px-2 w-12 py-2 font-medium text-sm whitespace-no-wrap border-b border-gray-200"
                     >
-                    {{ order.statuses.name }}
+                        {{ order.statuses.name }}
                     </td>
                     <td
                         class="px-2 w-12 py-2 font-medium text-sm whitespace-no-wrap border-b border-gray-200"
                     >
-                    <div class="flex items-center">
+                        <div class="flex items-center">
                             <div>
                                 <div
                                     class="text-sm leading-5 font-semibold text-gray-700"
@@ -100,27 +100,27 @@
                     <td
                         class="px-2 w-12 py-2 font-medium text-sm whitespace-no-wrap border-b border-gray-200"
                     >
-                    {{ order.model }}
+                        {{ order.model }}
                     </td>
                     <td
                         class="px-2 w-12 py-2 font-medium text-sm whitespace-no-wrap border-b border-gray-200"
                     >
-                    {{ order.model_full_name }}
+                        {{ order.model_full_name }}
                     </td>
                     <td
                         class="px-2 w-12 py-2 font-medium text-sm whitespace-no-wrap border-b border-gray-200"
                     >
-                    {{ order.product_complection }}
+                        {{ order.product_complection }}
                     </td>
                     <td
                         class="px-2 w-12 py-2 font-medium text-sm whitespace-no-wrap border-b border-gray-200"
                     >
-                    {{ order.malfunction }}
+                        {{ order.malfunction }}
                     </td>
                     <td
                         class="px-2 w-12 py-2 font-medium text-sm whitespace-no-wrap border-b border-gray-200"
                     >
-                    <div class="flex items-center">
+                        <div class="flex items-center">
                             <div>
                                 <div
                                     class="text-sm leading-5 font-semibold text-gray-700"
@@ -135,8 +135,8 @@
                     </td>
                 </tr>
             </tbody>
-   </table>
-   <div>
+        </table>
+        <div>
             <Pagination
                 :data="orders"
                 :limit="4"
@@ -151,26 +151,26 @@
                 </template>
             </Pagination>
         </div>
-</div>
+    </div>
 </template>
 
 <script>
-import useOrders from "../../composables/orders/orders"
-import useHelpers from "../../composables/common/common"
-import { onMounted } from "vue"
+import useOrders from "../../composables/orders/orders";
+import useHelpers from "../../composables/common/common";
+import { onMounted } from "vue";
 
 export default {
-    setup () {
-        const {orders, userService, getOrders} = useOrders()
-        const { correctDate, leadingZeros } = useHelpers()
-        onMounted(getOrders)
+    setup() {
+        const { orders, userService, getOrders } = useOrders();
+        const { correctDate, leadingZeros } = useHelpers();
+        onMounted(getOrders);
 
         return {
             orders,
             correctDate,
             leadingZeros,
-            getOrders
-        }
-    }
-}
+            getOrders,
+        };
+    },
+};
 </script>
