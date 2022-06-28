@@ -59,7 +59,7 @@
             </thead>
             <tbody>
                 <tr class="number hover:bg-gray-200 transition-all duration-400"
-                v-for="order in orders"
+                v-for="order in orders.data"
                 :key="order.id"
                 >
                     <td
@@ -87,12 +87,12 @@
                     <div class="flex items-center">
                             <div>
                                 <div
-                                    class="text-sm leading-5 font-medium text-gray-700"
+                                    class="text-sm leading-5 font-semibold text-gray-700"
                                 >
                                     {{ order.users.name }}
                                 </div>
                                 <div class="text-sm leading-5 text-gray-500">
-                                    {{ correctTime(order.created_at) }}
+                                    {{ correctDate(order.created_at) }}
                                 </div>
                             </div>
                         </div>
@@ -123,7 +123,7 @@
                     <div class="flex items-center">
                             <div>
                                 <div
-                                    class="text-sm leading-5 font-medium text-gray-700"
+                                    class="text-sm leading-5 font-semibold text-gray-700"
                                 >
                                     {{ order.client_login }}
                                 </div>
@@ -136,6 +136,21 @@
                 </tr>
             </tbody>
    </table>
+   <div>
+            <Pagination
+                :data="orders"
+                :limit="4"
+                @pagination-change-page="getOrders"
+                class="mt-4"
+            >
+                <template #prev-nav>
+                    <span>Пред.</span>
+                </template>
+                <template #next-nav>
+                    <span>След.</span>
+                </template>
+            </Pagination>
+        </div>
 </div>
 </template>
 
@@ -147,14 +162,14 @@ import { onMounted } from "vue"
 export default {
     setup () {
         const {orders, userService, getOrders} = useOrders()
-        const { correctTime, leadingZeros } = useHelpers()
+        const { correctDate, leadingZeros } = useHelpers()
         onMounted(getOrders)
 
         return {
             orders,
-            userService,
-            correctTime,
-            leadingZeros
+            correctDate,
+            leadingZeros,
+            getOrders
         }
     }
 }

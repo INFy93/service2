@@ -2,7 +2,7 @@ import moment from "moment"
 moment.locale("ru")
 export default function useHelpers () {
 
-    function correctTime(value)
+    function correctDate(value)
     {
         if (value) {
             return moment(String(value))
@@ -17,7 +17,7 @@ export default function useHelpers () {
     }
 
     return {
-       correctTime,
+       correctDate,
        leadingZeros
     }
 }

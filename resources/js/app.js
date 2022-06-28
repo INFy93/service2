@@ -8,8 +8,9 @@ require('./bootstrap');
 
 import { createApp } from 'vue';
 import Orders from './components/orders/Orders';
-createApp({
-    components: {
-        Orders
-    }
-}).mount('#app');
+import LaravelVuePagination from 'laravel-vue-pagination';
+
+const app = createApp({});
+app.component('orders', Orders);
+app.component('Pagination', LaravelVuePagination);
+app.mount('#app');
