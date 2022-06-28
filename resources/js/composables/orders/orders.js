@@ -1,15 +1,13 @@
-import { ref } from "vue";
+import { reactive, ref } from "vue";
 import axios from "axios";
 export default function useOrders() {
     const orders = ref([]);
     const user = window.Laravel.user;
-    const getOrders = async (page) => {
-        if (typeof page === "undefined") {
-            page = 1;
-        }
-        let response = await axios.get("/api/orders?page=" + page);
+    const search = ref("");
+    const getOrders = async (page = 1) => {
+        let response = await axios.get("/api/orders?page=" + page + "&search=" + search.value);
         orders.value = response.data;
-        console.log(user.id);
+        console.log(search)
     };
 
     const newStatus = async (status_id, order_id) => {
@@ -19,9 +17,6 @@ export default function useOrders() {
                 rem_id: order_id,
                 user_id: user.id,
             })
-            .then((response) => {
-                console.log("ok");
-            })
             .catch((response) => {
                 console.log(response.status)
             });
@@ -29,6 +24,7 @@ export default function useOrders() {
 
     return {
         orders,
+        search,
         getOrders,
         newStatus
     };

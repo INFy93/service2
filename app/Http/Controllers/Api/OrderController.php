@@ -11,7 +11,11 @@ class OrderController extends Controller
 {
     public function getOrders()
     {
+        $search_term = request('search', '');
+
+
         $orders = Order::with(['services', 'users', 'statuses'])
+        ->search(trim($search_term))
         ->orderBy('id', 'desc')
         ->paginate(30);
 

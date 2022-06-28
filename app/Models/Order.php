@@ -22,4 +22,16 @@ class Order extends Model
     {
         return $this->hasOne(Status::class, 'status_id', 'status');
     }
+
+    public function scopeSearch($query, $term)
+    {
+        $term = "%$term%";
+
+        $query->where(function($query) use ($term){
+            $query->where('client_login', 'like', $term)
+                ->orWhere('model', 'like', $term)
+                ->orWhere('model_full_name', 'like', $term)
+                ->orWhere('client_phone', 'like', $term);
+        });
+    }
 }

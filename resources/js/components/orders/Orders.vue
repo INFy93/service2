@@ -1,5 +1,33 @@
 <template>
     <div>
+        <div class="flex flex-row items-center">
+            <div
+                v-if="orders.data"
+                class="bg-white rounded right-0 flex items-center w-full max-w-xl h-10 mb-2 p-2 shadow-sm border border-gray-200"
+            >
+                <svg
+                    class="w-5 text-gray-500 h-5 cursor-pointer"
+                    fill="none"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                >
+                    <path
+                        d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                    ></path>
+                </svg>
+                <input
+                    type="text"
+                    v-model="search"
+                    name=""
+                    id=""
+                    placeholder="Поиск по логину, модели или полной модели."
+                    class="w-full pl-3 text-sm text-black border-transparent focus:border-transparent focus:ring-0 bg-transparent"
+                />
+            </div>
+        </div>
         <table class="w-full">
             <thead>
                 <tr>
@@ -10,7 +38,7 @@
                             type="checkbox"
                             name=""
                             id=""
-                            v-model="selectPage"
+
                             class="rounded focus:outline-none dark:ring-offset-gray-600 dark:focus:ring-gray-500 border-gray-300 dark:border-gray-600 dark:bg-gray-500 dark:text-gray-400"
                         />
                     </th>
@@ -285,18 +313,24 @@
 <script>
 import useOrders from "../../composables/orders/orders";
 import useHelpers from "../../composables/common/common";
-import { onMounted } from "vue";
+import { onMounted, watch } from "vue";
 export default {
     setup() {
-        const { orders, getOrders, newStatus } = useOrders();
+        const { orders, search, getOrders, newStatus } = useOrders();
         const { correctDate, leadingZeros } = useHelpers();
         onMounted(getOrders);
         const changeStatus = async(status_id, order_id) => {
             await newStatus(status_id, order_id);
             await getOrders();
         }
+
+        watch(search, async () => {
+            await getOrders()
+        });
+
         return {
             orders,
+            search,
             correctDate,
             leadingZeros,
             getOrders,
