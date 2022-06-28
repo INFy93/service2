@@ -4,6 +4,7 @@ export default function useOrders() {
     const orders = ref([]);
     const user = window.Laravel.user;
     const search = ref("");
+
     const getOrders = async (page = 1) => {
         let response = await axios.get("/api/orders?page=" + page + "&search=" + search.value);
         orders.value = response.data;

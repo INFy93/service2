@@ -22928,7 +22928,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     name: "",
     id: "",
     placeholder: "Поиск по логину, модели или полной модели.",
-    "class": "w-full pl-3 text-sm text-black border-transparent focus:border-transparent focus:ring-0 bg-transparent"
+    "class": "w-full pl-3 text-sm text-black border-transparent focus:border-transparent border-none focus:outline-none focus:ring-0 bg-transparent"
   }, null, 512
   /* NEED_PATCH */
   ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $setup.search]])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("table", _hoisted_4, [_hoisted_5, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("tbody", null, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($setup.orders.data, function (order) {
