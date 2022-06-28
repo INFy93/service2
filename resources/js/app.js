@@ -9,8 +9,20 @@ require('./bootstrap');
 import { createApp } from 'vue';
 import Orders from './components/orders/Orders';
 import LaravelVuePagination from 'laravel-vue-pagination';
+import { Menu, MenuButton, MenuItems, MenuItem } from '@headlessui/vue'
+import { ChevronDownIcon } from "@heroicons/vue/solid";
 
 const app = createApp({});
 app.component('orders', Orders);
+
+//pagination
 app.component('Pagination', LaravelVuePagination);
+
+//dropdown
+app.component('Menu', Menu);
+app.component('MenuButton', MenuButton);
+app.component('MenuItems', MenuItems);
+app.component('MenuItem', MenuItem);
+app.component('ChevronDownIcon', ChevronDownIcon);
+
 app.mount('#app');

@@ -63,7 +63,7 @@
                     :key="order.id"
                 >
                     <td
-                        class="px-2 w-12 py-2 font-medium text-sm whitespace-no-wrap border-b border-gray-200"
+                        class="px-2 w-12 py-1 font-medium text-sm whitespace-no-wrap border-b border-gray-200"
                     >
                         <input
                             type="checkbox"
@@ -72,17 +72,136 @@
                         />
                     </td>
                     <td
-                        class="px-2 w-12 py-2 font-medium text-sm whitespace-no-wrap border-b border-gray-200"
+                        class="px-2 w-20 py-1 font-medium text-sm whitespace-no-wrap border-b border-gray-200"
                     >
                         {{ leadingZeros(order.id) }}
                     </td>
                     <td
-                        class="px-2 w-12 py-2 font-medium text-sm whitespace-no-wrap border-b border-gray-200"
+                        class="px-2 w-52 py-1 font-medium text-sm whitespace-no-wrap border-b border-gray-200"
                     >
-                        {{ order.statuses.name }}
+                        <Menu as="div" class="relative inline-block text-left">
+                            <div>
+                                <MenuButton
+                                    class="px-4 py-1 inline-flex items-center text-xs leading-5 font-semibold rounded-lg text-white"
+                                    :class="'bg-' + order.statuses.color"
+                                >
+                                    {{ order.statuses.name }}
+                                    <ChevronDownIcon
+                                        class="w-5 h-5 ml-2 -mr-1"
+                                        aria-hidden="true"
+                                    />
+                                </MenuButton>
+                            </div>
+
+                            <transition
+                                enter-active-class="transition duration-100 ease-out"
+                                enter-from-class="transform scale-95 opacity-0"
+                                enter-to-class="transform scale-100 opacity-100"
+                                leave-active-class="transition duration-75 ease-in"
+                                leave-from-class="transform scale-100 opacity-100"
+                                leave-to-class="transform scale-95 opacity-0"
+                            >
+                                <MenuItems
+                                    class="absolute z-10 left-0 w-56 mt-2 origin-top-right bg-white divide-y divide-gray-100 rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
+                                >
+                                    <div class="px-1 py-1">
+                                        <MenuItem>
+                                            <a
+                                                href="#"
+                                                status_id="1"
+                                                @click.stop.prevent
+                                                @click="
+                                                    change_status(1, order.id)
+                                                "
+                                                class="block py-1 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
+                                                >Новый</a
+                                            >
+                                        </MenuItem>
+                                        <MenuItem>
+                                            <a
+                                                href="#"
+                                                status_id="2"
+                                                @click.stop.prevent
+                                                @click="
+                                                    change_status(2, order.id)
+                                                "
+                                                class="block py-1 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
+                                                >В работе</a
+                                            >
+                                        </MenuItem>
+                                    </div>
+                                    <div class="px-1 py-1">
+                                        <MenuItem>
+                                            <a
+                                                href="#"
+                                                status_id="3"
+                                                @click.stop.prevent
+                                                @click="
+                                                    change_status(3, order.id)
+                                                "
+                                                class="block py-1 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
+                                                >На согласовании</a
+                                            >
+                                        </MenuItem>
+                                        <MenuItem>
+                                            <a
+                                                href="#"
+                                                ref="status4"
+                                                @click.stop.prevent
+                                                @click="
+                                                    change_status(4, order.id)
+                                                "
+                                                class="block py-1 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
+                                                >Ждет запчасть</a
+                                            >
+                                        </MenuItem>
+                                    </div>
+                                    <div class="px-1 py-1">
+                                        <MenuItem>
+                                            <a
+                                                href="#"
+                                                status_id="5"
+                                                @click.stop.prevent
+                                                @click="
+                                                    change_status(5, order.id)
+                                                "
+                                                class="block py-1 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
+                                                >Готов</a
+                                            >
+                                        </MenuItem>
+                                        <MenuItem>
+                                            <a
+                                                href="#"
+                                                status_id="6"
+                                                @click.stop.prevent
+                                                @click="
+                                                    change_status(6, order.id)
+                                                "
+                                                class="block py-1 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
+                                                >Закрыт</a
+                                            >
+                                        </MenuItem>
+                                    </div>
+                                    <div class="px-1 py-1">
+                                        <MenuItem>
+                                            <a
+                                                href="#"
+                                                status_id="7"
+                                                @click.stop.prevent
+                                                @click="
+                                                    change_status(7, order.id)
+                                                "
+                                                class="block py-1 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
+                                                >Отказ</a
+                                            >
+                                        </MenuItem>
+                                    </div>
+                                </MenuItems>
+                            </transition>
+                        </Menu>
                     </td>
                     <td
-                        class="px-2 w-12 py-2 font-medium text-sm whitespace-no-wrap border-b border-gray-200"
+                        class="px-2 py-1 font-medium text-sm whitespace-no-wrap border-b border-gray-200"
                     >
                         <div class="flex items-center">
                             <div>
@@ -98,27 +217,36 @@
                         </div>
                     </td>
                     <td
-                        class="px-2 w-12 py-2 font-medium text-sm whitespace-no-wrap border-b border-gray-200"
+                        class="px-2 py-1 font-medium text-sm whitespace-no-wrap border-b border-gray-200"
                     >
-                        {{ order.model }}
+                        {{ order.product }}
                     </td>
                     <td
-                        class="px-2 w-12 py-2 font-medium text-sm whitespace-no-wrap border-b border-gray-200"
+                        class="px-2 py-1 font-medium text-sm whitespace-no-wrap border-b border-gray-200"
                     >
-                        {{ order.model_full_name }}
+                        <div>
+                                <div
+                                    class="text-sm leading-5 font-semibold text-gray-700"
+                                >
+                                    {{ order.model }}
+                                </div>
+                                <div class="text-sm leading-5 text-gray-500">
+                                    {{ order.model_full_name }}
+                                </div>
+                            </div>
                     </td>
                     <td
-                        class="px-2 w-12 py-2 font-medium text-sm whitespace-no-wrap border-b border-gray-200"
+                        class="px-2 py-1 font-medium text-sm whitespace-no-wrap border-b border-gray-200"
                     >
                         {{ order.product_complection }}
                     </td>
                     <td
-                        class="px-2 w-12 py-2 font-medium text-sm whitespace-no-wrap border-b border-gray-200"
+                        class="px-2 w-96 py-1 font-medium text-sm whitespace-no-wrap border-b border-gray-200"
                     >
                         {{ order.malfunction }}
                     </td>
                     <td
-                        class="px-2 w-12 py-2 font-medium text-sm whitespace-no-wrap border-b border-gray-200"
+                        class="px-2 py-1 font-medium text-sm whitespace-no-wrap border-b border-gray-200"
                     >
                         <div class="flex items-center">
                             <div>
@@ -158,7 +286,6 @@
 import useOrders from "../../composables/orders/orders";
 import useHelpers from "../../composables/common/common";
 import { onMounted } from "vue";
-
 export default {
     setup() {
         const { orders, userService, getOrders } = useOrders();
