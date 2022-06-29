@@ -305,11 +305,15 @@ import addNewOrder from "../../composables/orders/new_order"
 export default {
     setup() {
         const { isOpen, openModal, closeModal } = useDialogs();
-        const { new_order, clientData, show_client_data, searchLogins } = addNewOrder();
+        const { new_order, clientData, show_client_data, addProduct, addMalfunction, addComplection, addModel, storeOrder, searchLogins, autoComplete } = addNewOrder();
 
-          onMounted(() => {
+       /*   onMounted(() => {
             console.log(new_order)
-        });
+        }); */
+
+        const addOrder = () => {
+            storeOrder();
+        }
         return {
            new_order,
            clientData,
@@ -317,7 +321,13 @@ export default {
            show_client_data,
            closeModal,
            openModal,
-           searchLogins
+           searchLogins,
+           addOrder,
+           autoComplete,
+           addMalfunction,
+           addComplection,
+           addModel,
+           addProduct
         };
     },
 };

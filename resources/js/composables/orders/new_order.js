@@ -17,6 +17,10 @@ export default function addNewOrder() {
     const clientData = ref({});
     const show_client_data = ref(false);
 
+    const storeOrder = () => {
+        console.log(new_order)
+    }
+
     const searchLogins = async () => {
         if (new_order.client_login.length >= 3)
         {
@@ -30,11 +34,41 @@ export default function addNewOrder() {
         }
     }
 
+    function autoComplete(login, phone)
+    {
+        new_order.client_login = login
+        new_order.client_phone = phone
+        show_client_data.value = false
+    }
+
+    function addMalfunction(event)
+    {
+        new_order.malfunction = event.target.innerHTML
+    }
+    function addComplection(event)
+    {
+        new_order.product_complection = event.target.innerHTML
+    }
+    function addModel(event)
+    {
+        new_order.model = event.target.innerHTML
+    }
+    function addProduct(event)
+    {
+        new_order.product = event.target.innerHTML
+    }
+
     return {
        user,
        new_order,
        clientData,
        show_client_data,
-       searchLogins
+       searchLogins,
+       autoComplete,
+       storeOrder,
+       addMalfunction,
+       addComplection,
+       addModel,
+       addProduct
     };
 }
