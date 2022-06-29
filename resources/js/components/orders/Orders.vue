@@ -1,6 +1,7 @@
 <template>
     <div>
         <div class="flex flex-row items-center">
+            <add-order ref="addOrder"></add-order>
             <div
                 v-if="orders.data"
                 class="bg-white rounded right-0 flex items-center w-full max-w-xl h-10 mb-2 p-2 shadow-sm border border-gray-200"
@@ -102,7 +103,15 @@
                     <td
                         class="px-2 w-20 py-1 font-medium text-sm whitespace-no-wrap border-b border-gray-200"
                     >
-                        {{ leadingZeros(order.id) }}
+                         <a
+                            href="#"
+                            class="text-blue-600 hover:underline"
+                            @click.prevent="openOrder"
+                        >
+                            {{ order.services.service_code }}-{{
+                                leadingZeros(order.id)
+                            }}
+                        </a>
                     </td>
                     <td
                         class="px-2 w-52 py-1 font-medium text-sm whitespace-no-wrap border-b border-gray-200"
@@ -313,12 +322,19 @@
 <script>
 import useOrders from "../../composables/orders/orders";
 import useHelpers from "../../composables/common/common";
-import { onMounted, watch } from "vue";
+import { ref, onMounted, watch } from "vue";
 export default {
-    setup() {
-        const { orders, search, getOrders, newStatus } = useOrders();
+    setup(props, ctx) {
+        const addOrder = ref(null);
+        const { orders, search, getOrders, newStatus, } = useOrders();
         const { correctDate, leadingZeros } = useHelpers();
-        onMounted(getOrders);
+
+        onMounted(() => {
+            getOrders();
+        });
+        const openOrder = () => {
+            addOrder.value.openModal();
+        }
         const changeStatus = async(status_id, order_id) => {
             await newStatus(status_id, order_id);
             await getOrders();
@@ -334,7 +350,9 @@ export default {
             correctDate,
             leadingZeros,
             getOrders,
-            changeStatus
+            changeStatus,
+            addOrder,
+            openOrder
         };
     },
 };

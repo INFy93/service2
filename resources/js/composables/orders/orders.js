@@ -8,7 +8,6 @@ export default function useOrders() {
     const getOrders = async (page = 1) => {
         let response = await axios.get("/api/orders?page=" + page + "&search=" + search.value);
         orders.value = response.data;
-        console.log(search)
     };
 
     const newStatus = async (status_id, order_id) => {

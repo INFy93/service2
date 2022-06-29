@@ -7,13 +7,17 @@
 require('./bootstrap');
 
 import { createApp } from 'vue';
+
 import Orders from './components/orders/Orders';
+import AddOrder from './components/dialogs/AddOrder';
+
 import LaravelVuePagination from 'laravel-vue-pagination';
-import { Menu, MenuButton, MenuItems, MenuItem } from '@headlessui/vue'
+import { Menu, MenuButton, MenuItems, MenuItem, TransitionRoot, TransitionChild, Dialog, DialogPanel, DialogTitle } from '@headlessui/vue'
 import { ChevronDownIcon } from "@heroicons/vue/solid";
 
 const app = createApp({});
 app.component('orders', Orders);
+app.component('add-order', AddOrder);
 
 //pagination
 app.component('Pagination', LaravelVuePagination);
@@ -24,5 +28,12 @@ app.component('MenuButton', MenuButton);
 app.component('MenuItems', MenuItems);
 app.component('MenuItem', MenuItem);
 app.component('ChevronDownIcon', ChevronDownIcon);
+
+//dialog
+app.component('TransitionRoot', TransitionRoot);
+app.component('TransitionChild', TransitionChild);
+app.component('Dialog', Dialog);
+app.component('DialogPanel', DialogPanel);
+app.component('DialogTitle', DialogTitle);
 
 app.mount('#app');
