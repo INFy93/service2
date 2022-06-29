@@ -8,11 +8,13 @@ require('./bootstrap');
 
 import { createApp } from 'vue';
 
+import Maska from "maska";
+
 import Orders from './components/orders/Orders';
 import AddOrder from './components/dialogs/AddOrder';
 
 import LaravelVuePagination from 'laravel-vue-pagination';
-import { Menu, MenuButton, MenuItems, MenuItem, TransitionRoot, TransitionChild, Dialog, DialogPanel, DialogTitle } from '@headlessui/vue'
+import { Menu, MenuButton, MenuItems, MenuItem, TransitionRoot, TransitionChild, Dialog, DialogPanel, DialogTitle, DialogOverlay } from '@headlessui/vue'
 import { ChevronDownIcon } from "@heroicons/vue/solid";
 
 const app = createApp({});
@@ -35,5 +37,10 @@ app.component('TransitionChild', TransitionChild);
 app.component('Dialog', Dialog);
 app.component('DialogPanel', DialogPanel);
 app.component('DialogTitle', DialogTitle);
+app.component('DialogOverlay', DialogOverlay);
+
+//app use some plugins
+app.use(Maska);
+
 
 app.mount('#app');

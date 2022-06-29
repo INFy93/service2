@@ -36,4 +36,17 @@ class OrderController extends Controller
         $order->save();
         $story->save();
     }
+
+    public function searchLogin()
+    {
+    	$key = \Request::get('q');
+
+        $client_data = Order::where('client_login','LIKE',"%{$key}%")
+        ->select('id', 'client_login', 'client_phone')
+        ->orderBy('id', 'desc')
+        ->limit(15)
+        ->get();
+
+    	return response()->json($client_data);
+    }
 }

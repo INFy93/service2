@@ -1,5 +1,31 @@
 <template>
     <div>
+        <div class="mb-2 mt-2 flex flex-row items-center">
+            <div>
+                <a class="update-button">
+                    <button
+                        @click.prevent="openOrder"
+                        class="flex items-center justify-center bg-green-600 hover:bg-green-700 dark:bg-blue-900 dark:hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg"
+                    >
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            class="h-6 w-6"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                        >
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M12 6v6m0 0v6m0-6h6m-6 0H6"
+                            />
+                        </svg>
+                        <span>Заказ</span>
+                    </button>
+                </a>
+            </div>
+        </div>
         <div class="flex flex-row items-center">
             <add-order ref="addOrder"></add-order>
             <div
