@@ -49,4 +49,43 @@ class OrderController extends Controller
 
     	return response()->json($client_data);
     }
+
+    public function addOrder(Request $req)
+    {
+        $today = date("Y-m-d H:i:s", time()+60*60*24*4);
+
+        //creating array for db insert from request
+        $new_order = [
+            'code' => \Stuff::generateOrderCode(),
+            'client_login' => $req->order['client_login'],
+            'appearance' => $req->order['appearance'],
+            'client_phone' => $req->order['client_phone'],
+            'malfunction' => $req->order['malfunction'],
+            'marks' => $req->order['marks'],
+            'model' => $req->order['model'],
+            'model_full_name' => $req->order['model_full_name'],
+            'product' => $req->order['product'],
+            'product_complection' => $req->order['product_complection'],
+            'status' => 1,
+            'manager_id' => $req->order['manager_id'],
+            'service' => Auth::user()->service_id,
+            'created_at' =>  date("Y-m-d H:i:s"),
+            'updated_at' =>  date("Y-m-d H:i:s"),
+        ];
+
+        Order::insert($new_order);
+
+        $order = Order::orderBy('id', 'desc')->first();
+
+        $story = [
+            'user_id' => $req->order['manager_id'],
+            'order_id' => $order->id,
+            'event' => 1,
+            'created_at' =>  date("Y-m-d H:i:s"),
+            'updated_at' =>  date("Y-m-d H:i:s"),
+        ];
+        Story::insert($story);
+
+        return response()->json("Заказ успешно добавлен");
+    }
 }
