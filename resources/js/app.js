@@ -9,6 +9,24 @@ require('./bootstrap');
 import { createApp } from 'vue';
 
 import Maska from "maska";
+import Toast from "vue-toastification";
+import { Field, Form, ErrorMessage } from 'vee-validate';
+//toast options
+const options = {
+    position: "top-right",
+    transition: "Vue-Toastification__fade",
+    timeout: 3000,
+    closeOnClick: true,
+    pauseOnFocusLoss: true,
+    pauseOnHover: true,
+    draggable: true,
+    draggablePercent: 0.6,
+    showCloseButtonOnHover: false,
+    hideProgressBar: true,
+    closeButton: "button",
+    icon: true,
+    rtl: false
+};
 
 import Orders from './components/orders/Orders';
 import AddOrder from './components/dialogs/AddOrder';
@@ -39,8 +57,12 @@ app.component('DialogPanel', DialogPanel);
 app.component('DialogTitle', DialogTitle);
 app.component('DialogOverlay', DialogOverlay);
 
+//form
+app.component('Form', Form);
+app.component('Field', Field);
+app.component('ErrorMessage', ErrorMessage);
 //app use some plugins
 app.use(Maska);
-
+app.use(Toast, options);
 
 app.mount('#app');

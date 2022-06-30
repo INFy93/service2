@@ -1,4 +1,5 @@
-import { reactive, ref } from "vue";
+import { computed, reactive, ref } from "vue";
+
 import axios from "axios";
 export default function addNewOrder() {
     const user = window.Laravel.user;
@@ -13,12 +14,14 @@ export default function addNewOrder() {
             appearance: "Царапины, потертости",
             marks: "",
             manager_id: user.id
-    });
+        });
+
     const clientData = ref({});
     const show_client_data = ref(false);
 
+
     const storeOrder = () => {
-        console.log(new_order)
+        alert('SUCCESS!! :-)\n\n' + JSON.stringify(new_order, null, 4));
     }
 
     const searchLogins = async () => {
