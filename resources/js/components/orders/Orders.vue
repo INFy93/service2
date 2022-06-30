@@ -27,7 +27,7 @@
             </div>
         </div>
         <div class="flex flex-row items-center">
-            <add-order ref="addOrder"></add-order>
+            <add-order ref="addOrder" @add-event="getOrders"></add-order>
             <div
                 v-if="orders.data"
                 class="bg-white rounded right-0 flex items-center w-full max-w-xl h-10 mb-2 p-2 shadow-sm border border-gray-200"

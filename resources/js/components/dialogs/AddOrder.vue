@@ -5,7 +5,7 @@
                     <div class="min-h-screen px-4 text-center">
                         <TransitionChild
                             as="template"
-                            enter="duration-300 ease-out"
+                            enter="duration-200 ease-out"
                             enter-from="opacity-0"
                             enter-to="opacity-100"
                             leave="duration-200 ease-in"
@@ -266,11 +266,9 @@ import { useToast } from "vue-toastification";
 import { useForm, useField } from 'vee-validate';
 import * as Yup from 'yup';
 export default {
-    setup() {
+    setup(props, { emit }) {
         const { isOpen, openModal, closeModal } = useDialogs();
         const { new_order, clientData, show_client_data, addProduct, addMalfunction, addComplection, addModel, storeOrder, searchLogins, autoComplete } = addNewOrder();
-
-        const toast = useToast();
 
         const schema = Yup.object({
             login: Yup.string().required("Необходимо ввести логин"),
@@ -281,9 +279,10 @@ export default {
         });
         const addOrder = async() => {
             await storeOrder(schema);
+            closeModal();
+            emit("add-event");
         }
         return {
-           toast,
            new_order,
            schema,
            clientData,

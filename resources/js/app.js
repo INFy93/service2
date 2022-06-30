@@ -10,6 +10,7 @@ import { createApp } from 'vue';
 
 import Maska from "maska";
 import Toast from "vue-toastification";
+import "vue-toastification/dist/index.css";
 import { Field, Form, ErrorMessage } from 'vee-validate';
 //toast options
 const options = {

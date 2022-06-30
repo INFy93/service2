@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\OrderController;
+use App\Models\Order;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -20,5 +21,6 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/orders', [OrderController::class, 'getOrders']);
     Route::post('/change_status', [OrderController::class, 'changeStatus']);
     Route::get('/search_client', [OrderController::class, 'searchLogin']);
+    Route::post('/add_order', [OrderController::class, 'addOrder']);
 
 });

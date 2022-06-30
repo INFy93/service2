@@ -1,5 +1,5 @@
 import { computed, reactive, ref } from "vue";
-
+import { useToast } from "vue-toastification";
 import axios from "axios";
 export default function addNewOrder() {
     const user = window.Laravel.user;
@@ -18,10 +18,17 @@ export default function addNewOrder() {
 
     const clientData = ref({});
     const show_client_data = ref(false);
+    const toast = useToast();
 
-
-    const storeOrder = () => {
-        alert('SUCCESS!! :-)\n\n' + JSON.stringify(new_order, null, 4));
+    const storeOrder = async() => {
+        await axios.post("/api/add_order", {
+            order: new_order
+        }).then(response => {
+            toast.success("Заказ успешно добавлен!")
+        })
+        .catch(response => {
+            toast.error("Сетевая ошибка " + response.status)
+        })
     }
 
     const searchLogins = async () => {
