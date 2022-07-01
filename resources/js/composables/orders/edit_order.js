@@ -4,6 +4,7 @@ import axios from "axios";
 export default function useSingleOrder() {
     const order = ref([]);
     const story = ref([]);
+    const toast = useToast();
 
     const getSingleOrder = async(id) => {
         order.value = [];
@@ -17,9 +18,23 @@ export default function useSingleOrder() {
        }));
     }
 
+    const updateOrder = async (id) => {
+        await axios.post("/api/order", {
+            ord_id: id,
+            order: order.value
+        })
+        .then(response => {
+            toast.success("Заказ успешно обновлен!")
+        })
+        .catch(error => {
+            toast.error("Ошибка. Смотрим консоль и кидаем мне скрин")
+        })
+    }
+
     return {
         order,
         story,
-        getSingleOrder
+        getSingleOrder,
+        updateOrder
     };
 }

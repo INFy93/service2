@@ -22,6 +22,8 @@ Route::get('/',  function () {
         return view('auth.login');
     }
 })->name('enter');
-Route::get('/logout', [LoginController::class, 'logout']);
-Route::view('/orders', 'orders')->name('main');
+Route::group(['middleware' => ['auth']], function () {
+    Route::get('/logout', [LoginController::class, 'logout']);
+    Route::view('/orders', 'orders')->name('main');
+});
 Auth::routes();

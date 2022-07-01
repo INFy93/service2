@@ -18,7 +18,7 @@ export default function useOrders() {
                 user_id: user.id,
             })
             .catch((response) => {
-                console.log(response.status)
+                toast.error("Ошибка. Смотрим консоль и кидаем мне скрин")
             });
     };
 

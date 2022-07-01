@@ -31,7 +31,7 @@
                 <add-order ref="addOrder" @add-event="getOrders"></add-order>
             </div>
             <div>
-                <edit-order ref="changeOrder" ></edit-order>
+                <edit-order ref="changeOrder" @update-event="getOrders"></edit-order>
             </div>
             <div
                 v-if="orders.data"

@@ -27,7 +27,7 @@ export default function addNewOrder() {
             toast.success("Заказ успешно добавлен!")
         })
         .catch(response => {
-            toast.error("Сетевая ошибка " + response.status)
+            toast.error("Ошибка. Смотрим консоль и кидаем мне скрин")
         })
     }
 

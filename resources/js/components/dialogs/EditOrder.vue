@@ -53,6 +53,21 @@
                                                 <label
                                                     for="client_login"
                                                     class="block mb-2 text-sm font-semibold text-gray-900 dark:text-gray-300"
+                                                    >Уникальный код заказа</label
+                                                >
+                                                <input
+                                                    type="text"
+                                                    v-model="order.code"
+                                                    id="cleint_login"
+                                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                                    placeholder="Логин или имя клиента"
+                                                    disabled
+                                                />
+                                            </div>
+                                            <div class="mb-6">
+                                                <label
+                                                    for="client_login"
+                                                    class="block mb-2 text-sm font-semibold text-gray-900 dark:text-gray-300"
                                                     >Логин (или ФИО, если не наш
                                                     абон)*</label
                                                 >
@@ -187,6 +202,20 @@
                                                     placeholder="Какую ОС ставить или комменты о клиенте :)"
                                                 ></textarea>
                                             </div>
+                                            <div class="mb-6">
+                                                <label
+                                                    for="marks"
+                                                    class="block mb-2 text-sm font-semibold text-gray-900 dark:text-gray-300"
+                                                    >Выполненные работы</label
+                                                >
+                                                <textarea
+                                                    v-model="order.works"
+                                                    id="works"
+                                                    rows="4"
+                                                    class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                                    placeholder="Что было сделано"
+                                                ></textarea>
+                                            </div>
                                         </form>
                                     </div>
                                      <div class="mt-6 ml-3">
@@ -243,21 +272,24 @@
         </TransitionRoot>
 </template>
 <script>
-import {onMounted } from 'vue';
 import useDialogs from "../../composables/dialogs/dialogs"
 import useSingleOrder from "../../composables/orders/edit_order"
 import useHelpers from "../../composables/common/common";
 export default{
-    setup() {
+    setup(props, { emit }) {
         const { isOpen, openModal, closeModal } = useDialogs();
-        const { order, story, getSingleOrder } = useSingleOrder();
+        const { order, story, getSingleOrder, updateOrder } = useSingleOrder();
         const { correctDate } = useHelpers();
 
         const openEditDialog = async (id) => {
             openModal();
             await getSingleOrder(id);
         }
-
+        const editOrder = async (id) => {
+            await updateOrder(id);
+            closeModal();
+            emit("update-event");
+        }
         return {
             isOpen,
             order,
@@ -266,6 +298,7 @@ export default{
             closeModal,
             getSingleOrder,
             openEditDialog,
+            editOrder,
             correctDate
         }
     },
