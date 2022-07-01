@@ -89,18 +89,4 @@ class OrderController extends Controller
 
         return response()->json("Заказ успешно добавлен");
     }
-
-    public function getStory($id)
-    {
-        $story = Story::with(['statuses' => function ($query) {
-            $query->select('id', 'name');
-        },
-        'users' => function ($query) {
-            $query->select('id', 'name');
-        }])
-        ->where('order_id', '=', $id)
-        ->get();
-
-        return response()->json($story);
-    }
 }
