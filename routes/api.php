@@ -23,4 +23,6 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/search_client', [OrderController::class, 'searchLogin']);
     Route::post('/add_order', [OrderController::class, 'addOrder']);
 
+    Route::get('/story/{id}', [OrderController::class, 'getStory']);
+
 });

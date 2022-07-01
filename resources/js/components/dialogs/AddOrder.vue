@@ -262,8 +262,6 @@
 import { onMounted, watch } from "vue";
 import useDialogs from "../../composables/dialogs/dialogs"
 import addNewOrder from "../../composables/orders/new_order"
-import { useToast } from "vue-toastification";
-import { useForm, useField } from 'vee-validate';
 import * as Yup from 'yup';
 export default {
     setup(props, { emit }) {
