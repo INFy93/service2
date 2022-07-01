@@ -31,6 +31,7 @@ const options = {
 
 import Orders from './components/orders/Orders';
 import AddOrder from './components/dialogs/AddOrder';
+import EditOrder from './components/dialogs/EditOrder';
 
 import LaravelVuePagination from 'laravel-vue-pagination';
 import { Menu, MenuButton, MenuItems, MenuItem, TransitionRoot, TransitionChild, Dialog, DialogPanel, DialogTitle, DialogOverlay } from '@headlessui/vue'
@@ -39,6 +40,7 @@ import { ChevronDownIcon } from "@heroicons/vue/solid";
 const app = createApp({});
 app.component('orders', Orders);
 app.component('add-order', AddOrder);
+app.component('edit-order', EditOrder);
 
 //pagination
 app.component('Pagination', LaravelVuePagination);
@@ -62,6 +64,7 @@ app.component('DialogOverlay', DialogOverlay);
 app.component('Form', Form);
 app.component('Field', Field);
 app.component('ErrorMessage', ErrorMessage);
+
 //app use some plugins
 app.use(Maska);
 app.use(Toast, options);

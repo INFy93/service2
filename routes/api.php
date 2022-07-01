@@ -25,4 +25,5 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('/add_order', [OrderController::class, 'addOrder']);
 
     Route::get('/story/{id}', [SingleOrder::class, 'getStory']);
+    Route::get('/order/{id}', [SingleOrder::class, 'getSingleOrder']);
 });

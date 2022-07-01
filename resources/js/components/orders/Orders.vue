@@ -27,7 +27,12 @@
             </div>
         </div>
         <div class="flex flex-row items-center">
-            <add-order ref="addOrder" @add-event="getOrders"></add-order>
+            <div>
+                <add-order ref="addOrder" @add-event="getOrders"></add-order>
+            </div>
+            <div>
+                <edit-order ref="changeOrder" ></edit-order>
+            </div>
             <div
                 v-if="orders.data"
                 class="bg-white rounded right-0 flex items-center w-full max-w-xl h-10 mb-2 p-2 shadow-sm border border-gray-200"
@@ -132,7 +137,7 @@
                          <a
                             href="#"
                             class="text-blue-600 hover:underline"
-                            @click.prevent="openOrder"
+                            @click.prevent="editOrder(order.id)"
                         >
                             {{ order.services.service_code }}-{{
                                 leadingZeros(order.id)
@@ -352,15 +357,22 @@ import { ref, onMounted, watch } from "vue";
 export default {
     setup(props, ctx) {
         const addOrder = ref(null);
+        const changeOrder = ref(null);
         const { orders, search, getOrders, newStatus, } = useOrders();
         const { correctDate, leadingZeros } = useHelpers();
 
         onMounted(() => {
             getOrders();
         });
-        const openOrder = () => {
-            addOrder.value.openModal();
+
+        const openOrder = async () => {
+            await addOrder.value.openModal();
         }
+
+        const editOrder = async (id) => {
+            await changeOrder.value.openEditDialog(id);
+        }
+
         const changeStatus = async(status_id, order_id) => {
             await newStatus(status_id, order_id);
             await getOrders();
@@ -378,7 +390,9 @@ export default {
             getOrders,
             changeStatus,
             addOrder,
-            openOrder
+            openOrder,
+            changeOrder,
+            editOrder
         };
     },
 };

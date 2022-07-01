@@ -3,11 +3,20 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\OrdersResource;
+use App\Http\Resources\StoriesResource;
 use App\Models\Order;
 use Illuminate\Http\Request;
 use App\Models\Story;
 class SingleOrder extends Controller
 {
+    public function getSingleOrder($id)
+    {
+        $order = Order::with('services')->find($id);
+
+        return response()->json($order);
+    }
+
     public function getStory($id)
     {
         $story = Story::with(['statuses' => function ($query) {
@@ -19,6 +28,6 @@ class SingleOrder extends Controller
         ->where('order_id', '=', $id)
         ->get();
 
-        return response()->json($story);
+        return StoriesResource::collection($story);
     }
 }
