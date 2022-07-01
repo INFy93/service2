@@ -28,10 +28,16 @@ const options = {
     icon: true,
     rtl: false
 };
-
+import VueHtmlToPaper from './plugins/VueHtmlToPaper';
+const p_options = {
+    styles: [
+        '/css/printable.css',
+      ]
+}
 import Orders from './components/orders/Orders';
 import AddOrder from './components/dialogs/AddOrder';
 import EditOrder from './components/dialogs/EditOrder';
+import Print from './components/print/Print';
 
 import LaravelVuePagination from 'laravel-vue-pagination';
 import { Menu, MenuButton, MenuItems, MenuItem, TransitionRoot, TransitionChild, Dialog, DialogPanel, DialogTitle, DialogOverlay } from '@headlessui/vue'
@@ -41,7 +47,7 @@ const app = createApp({});
 app.component('orders', Orders);
 app.component('add-order', AddOrder);
 app.component('edit-order', EditOrder);
-
+app.component('print-order', Print);
 //pagination
 app.component('Pagination', LaravelVuePagination);
 
@@ -68,5 +74,6 @@ app.component('ErrorMessage', ErrorMessage);
 //app use some plugins
 app.use(Maska);
 app.use(Toast, options);
+app.use(VueHtmlToPaper, p_options);
 
 app.mount('#app');
