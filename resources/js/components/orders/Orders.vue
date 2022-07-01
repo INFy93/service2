@@ -60,7 +60,10 @@
                 />
             </div>
         </div>
-        <table class="w-full">
+        <div v-if="!orders.data">
+            <img src="/storage/img/load_table.svg" style="margin: 0 auto" />
+        </div>
+        <table v-else class="w-full">
             <thead>
                 <tr>
                     <th
