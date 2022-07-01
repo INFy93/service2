@@ -78,42 +78,42 @@
                         />
                     </th>
                     <th
-                        class="px-2 py-4 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider"
+                        class="px-2 py-4 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-semibold text-gray-500 uppercase tracking-wider"
                     >
                         №
                     </th>
                     <th
-                        class="px-2 py-1 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider"
+                        class="px-2 py-1 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-semibold text-gray-500 uppercase tracking-wider"
                     >
                         Статус
                     </th>
                     <th
-                        class="px-2 py-1 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider"
+                        class="px-2 py-1 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-semibold text-gray-500 uppercase tracking-wider"
                     >
                         Создан
                     </th>
                     <th
-                        class="px-2 py-1 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider"
+                        class="px-2 py-1 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-semibold text-gray-500 uppercase tracking-wider"
                     >
                         Изделие
                     </th>
                     <th
-                        class="px-2 py-1 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider"
+                        class="px-2 py-1 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-semibold text-gray-500 uppercase tracking-wider"
                     >
                         Модель
                     </th>
                     <th
-                        class="px-2 py-1 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider"
+                        class="px-2 py-1 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-semibold text-gray-500 uppercase tracking-wider"
                     >
                         Комплектация
                     </th>
                     <th
-                        class="px-2 py-1 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider"
+                        class="px-2 py-1 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-semibold text-gray-500 uppercase tracking-wider"
                     >
                         Неисправность
                     </th>
                     <th
-                        class="px-2 py-1 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider"
+                        class="px-2 py-1 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-semibold text-gray-500 uppercase tracking-wider"
                     >
                         Клиент
                     </th>
@@ -124,6 +124,7 @@
                     class="number hover:bg-gray-200 transition-all duration-400"
                     v-for="order in orders.data"
                     :key="order.id"
+                    @dblclick="editOrder(order.id)"
                 >
                     <td
                         class="px-2 w-12 py-1 font-medium text-sm whitespace-no-wrap border-b border-gray-200"
