@@ -24,5 +24,4 @@ Route::get('/',  function () {
 })->name('enter');
 Route::get('/logout', [LoginController::class, 'logout']);
 Route::view('/orders', 'orders')->name('main');
-
 Auth::routes();

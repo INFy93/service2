@@ -26,4 +26,10 @@ Route::group(['middleware' => ['auth']], function () {
 
     Route::get('/story/{id}', [SingleOrder::class, 'getStory']);
     Route::get('/order/{id}', [SingleOrder::class, 'getSingleOrder']);
+
+    Route::get('/st', function () {
+        Artisan::call('storage:link');
+
+        return Artisan::output();
+     });
 });
