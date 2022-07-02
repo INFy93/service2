@@ -7,6 +7,13 @@ export default function useOrders() {
     const services = ref([]);
     const selectedService = ref(user.is_admin == 1 ? 'all' : user.service_id);
 
+    const openOrdersCount = ref('');
+
+    const getOpenOrdersCount = async () => {
+        let response = await axios.get("/api/open_orders");
+        openOrdersCount.value = response.data;
+    }
+
     const getServices = async () => {
         let response = await axios.get("/api/services");
         services.value = response.data.data;
@@ -34,8 +41,10 @@ export default function useOrders() {
         search,
         services,
         selectedService,
+        openOrdersCount,
         getOrders,
         newStatus,
-        getServices
+        getServices,
+        getOpenOrdersCount
     };
 }

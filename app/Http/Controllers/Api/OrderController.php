@@ -94,4 +94,5 @@ class OrderController extends Controller
 
         return response()->json("Заказ успешно добавлен");
     }
+
 }

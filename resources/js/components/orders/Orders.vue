@@ -25,10 +25,26 @@
                     </button>
                 </a>
             </div>
+            <div class="flex justify-end items-center ml-auto">
+                <div class="wrapper w-40 bg-gray-700 rounded-lg cursor-pointer" :class="{'bg-gray-500': isOpen}" @click="showOnlyOpen">
+                    <div  class="flex text-white rounded-lg py-2 px-2 space-x-3 justify-left  items-center">
+                        <div>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-xl" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                    </div>
+                        <div class="pr-3">
+                            <span class="font-medium">{{ openOrdersCount }} {{ declOfNum(openOrdersCount, ['заказ', 'заказа', 'заказов']) }}</span>
+                            <br>
+                            <span>{{ declOfNum(openOrdersCount, ['открыт', 'открыто', 'открыто']) }}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
         <div class="flex flex-row items-center">
             <div>
-                <add-order ref="addOrder" @add-event="getOrders"></add-order>
+                <add-order ref="addOrder" @add-event="updateData"></add-order>
             </div>
             <div>
                 <edit-order ref="changeOrder" @update-event="getOrders"></edit-order>
@@ -386,12 +402,13 @@ export default {
     setup(props, ctx) {
         const addOrder = ref(null);
         const changeOrder = ref(null);
-        const { orders, services, selectedService, search, getOrders, newStatus, getServices} = useOrders();
-        const { correctDate, leadingZeros } = useHelpers();
+        const { orders, services, selectedService, search, openOrdersCount, getOrders, newStatus, getServices, getOpenOrdersCount} = useOrders();
+        const { correctDate, leadingZeros, declOfNum } = useHelpers();
 
         onMounted(() => {
             getOrders();
             getServices();
+            getOpenOrdersCount();
         });
 
         const openOrder = async () => {
@@ -402,9 +419,16 @@ export default {
             await changeOrder.value.openEditDialog(id);
         }
 
+        const updateData = async () =>
+        {
+            await getOrders();
+            await getOpenOrdersCount();
+        }
+
         const changeStatus = async(status_id, order_id) => {
             await newStatus(status_id, order_id);
             await getOrders();
+            await getOpenOrdersCount();
         }
 
         watch(search, async () => {
@@ -420,15 +444,19 @@ export default {
             search,
             services,
             selectedService,
+            openOrdersCount,
             correctDate,
             leadingZeros,
+            declOfNum,
             getOrders,
             getServices,
             changeStatus,
             addOrder,
             openOrder,
             changeOrder,
-            editOrder
+            editOrder,
+            getOpenOrdersCount,
+            updateData
         };
     },
 };
