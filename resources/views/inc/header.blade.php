@@ -7,7 +7,7 @@
     <div class="flex justify-between items-center h-14 bg-gray-200 header-right">
       <ul class="flex items-center text-gray-700 ml-auto">
         <li>
-           <a href="#" class="hover:underline">Тут будет имя</a>
+           <a href="#" class="hover:underline">{{ Auth::user()->name }}</a>
           </li>
         <li>
           <div class="block w-px h-6 mx-3 bg-gray-400 dark:bg-gray-700"></div>
