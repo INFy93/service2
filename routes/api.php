@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\OrderController;
+use App\Http\Controllers\Api\ServiceController;
 use App\Http\Controllers\Api\SingleOrder;
 use App\Models\Order;
 use Illuminate\Http\Request;
@@ -27,6 +28,8 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/story/{id}', [SingleOrder::class, 'getStory']);
     Route::get('/order/{id}', [SingleOrder::class, 'getSingleOrder']);
     Route::post('/order', [SingleOrder::class, 'updateOrder']);
+
+    Route::get('/services', [ServiceController::class, 'getServices']);
 
     Route::get('/st', function () {
         Artisan::call('storage:link');

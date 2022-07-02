@@ -4,9 +4,16 @@ export default function useOrders() {
     const orders = ref([]);
     const user = window.Laravel.user;
     const search = ref("");
+    const services = ref([]);
+    const selectedService = ref(user.is_admin == 1 ? 'all' : user.service_id);
+
+    const getServices = async () => {
+        let response = await axios.get("/api/services");
+        services.value = response.data.data;
+    }
 
     const getOrders = async (page = 1) => {
-        let response = await axios.get("/api/orders?page=" + page + "&search=" + search.value);
+        let response = await axios.get("/api/orders?page=" + page + "&search=" + search.value + "&selectedService=" + selectedService.value);
         orders.value = response.data;
     };
 
@@ -25,7 +32,10 @@ export default function useOrders() {
     return {
         orders,
         search,
+        services,
+        selectedService,
         getOrders,
-        newStatus
+        newStatus,
+        getServices
     };
 }

@@ -59,6 +59,30 @@
                     class="w-full pl-3 text-sm text-black border-transparent focus:border-transparent border-none focus:outline-none focus:ring-0 bg-transparent"
                 />
             </div>
+            <div class="flex justify-end items-center mb-2 ml-auto space-x-5">
+                    <label
+                        for="services"
+                        class="block text-m font-medium text-gray-900 dark:text-gray-400"
+                        >Сервис</label
+                    >
+                    <select
+                        id="services"
+                        v-model="selectedService"
+                        class="h-10 w-40 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    >
+                        <option value="all" class="border-b border-gray-400">
+                            Все сервисы
+                        </option>
+                        <option
+                            v-for="service in services"
+                            :key="service.id"
+                            :value="service.id"
+                            :selected="service.id == selectedService"
+                        >
+                            {{ service.service_name }}
+                        </option>
+                    </select>
+                </div>
         </div>
         <div v-if="!orders.data">
             <img src="/storage/img/load_table.svg" style="margin: 0 auto" />
@@ -362,11 +386,12 @@ export default {
     setup(props, ctx) {
         const addOrder = ref(null);
         const changeOrder = ref(null);
-        const { orders, search, getOrders, newStatus, } = useOrders();
+        const { orders, services, selectedService, search, getOrders, newStatus, getServices} = useOrders();
         const { correctDate, leadingZeros } = useHelpers();
 
         onMounted(() => {
             getOrders();
+            getServices();
         });
 
         const openOrder = async () => {
@@ -386,12 +411,19 @@ export default {
             await getOrders()
         });
 
+        watch(selectedService, async () => {
+            await getOrders()
+        });
+
         return {
             orders,
             search,
+            services,
+            selectedService,
             correctDate,
             leadingZeros,
             getOrders,
+            getServices,
             changeStatus,
             addOrder,
             openOrder,

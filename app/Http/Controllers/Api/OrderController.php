@@ -14,8 +14,13 @@ class OrderController extends Controller
     {
         $search_term = request('search', '');
 
+        $selected_service = request('selectedService', Auth::user()->service_id);
+        $filter = $selected_service == 'all' ? '' : $selected_service;
 
         $orders = Order::with(['services', 'users', 'statuses'])
+        ->when($filter, function($query) use ($filter) {
+            $query->where('service', $filter);
+        })
         ->search(trim($search_term))
         ->orderBy('id', 'desc')
         ->paginate(30);
