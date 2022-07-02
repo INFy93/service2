@@ -26,7 +26,7 @@
                 </a>
             </div>
             <div class="flex justify-end items-center ml-auto">
-                <div class="wrapper w-40 bg-gray-700 rounded-lg cursor-pointer" :class="{'bg-gray-500': isOpen}" @click="showOnlyOpen">
+                <div class="wrapper w-40 bg-gray-700 rounded-lg cursor-pointer" :class="{'bg-gray-500': showOnlyOpen}" @click="onlyOpen">
                     <div  class="flex text-white rounded-lg py-2 px-2 space-x-3 justify-left  items-center">
                         <div>
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-xl" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
@@ -40,6 +40,28 @@
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+        <div
+            v-if="showOnlyOpen"
+            class="flex p-2 mb-4 w-1/3 text-sm text-yellow-700 bg-yellow-100 rounded-lg dark:bg-yellow-200 dark:text-yellow-800"
+            role="alert"
+        >
+            <svg
+                class="inline flex-shrink-0 mr-3 w-5 h-5"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+            >
+                <path
+                    fill-rule="evenodd"
+                    d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"
+                    clip-rule="evenodd"
+                ></path>
+            </svg>
+            <div>
+                Включено отображение
+                только открытых заказов.
             </div>
         </div>
         <div class="flex flex-row items-center">
@@ -402,7 +424,7 @@ export default {
     setup(props, ctx) {
         const addOrder = ref(null);
         const changeOrder = ref(null);
-        const { orders, services, selectedService, search, openOrdersCount, getOrders, newStatus, getServices, getOpenOrdersCount} = useOrders();
+        const { orders, services, selectedService, search, showOnlyOpen, openOrdersCount, getOrders, newStatus, getServices, getOpenOrdersCount, onlyOpen} = useOrders();
         const { correctDate, leadingZeros, declOfNum } = useHelpers();
 
         onMounted(() => {
@@ -439,12 +461,17 @@ export default {
             await getOrders()
         });
 
+        watch(showOnlyOpen, async () => {
+            await getOrders()
+        });
+
         return {
             orders,
             search,
             services,
             selectedService,
             openOrdersCount,
+            showOnlyOpen,
             correctDate,
             leadingZeros,
             declOfNum,
@@ -456,7 +483,8 @@ export default {
             changeOrder,
             editOrder,
             getOpenOrdersCount,
-            updateData
+            updateData,
+            onlyOpen
         };
     },
 };
