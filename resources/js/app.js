@@ -40,7 +40,7 @@ import EditOrder from './components/dialogs/EditOrder';
 import Print from './components/print/Print';
 
 import LaravelVuePagination from 'laravel-vue-pagination';
-import { Menu, MenuButton, MenuItems, MenuItem, TransitionRoot, TransitionChild, Dialog, DialogPanel, DialogTitle, DialogOverlay } from '@headlessui/vue'
+import { Menu, MenuButton, MenuItems, MenuItem, TransitionRoot, TransitionChild, Dialog, DialogTitle, DialogOverlay } from '@headlessui/vue'
 import { ChevronDownIcon } from "@heroicons/vue/solid";
 
 const app = createApp({});
@@ -62,7 +62,6 @@ app.component('ChevronDownIcon', ChevronDownIcon);
 app.component('TransitionRoot', TransitionRoot);
 app.component('TransitionChild', TransitionChild);
 app.component('Dialog', Dialog);
-app.component('DialogPanel', DialogPanel);
 app.component('DialogTitle', DialogTitle);
 app.component('DialogOverlay', DialogOverlay);
 

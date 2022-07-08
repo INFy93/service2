@@ -5,7 +5,7 @@
                     <div class="min-h-screen px-4 text-center">
                         <TransitionChild
                             as="template"
-                            enter="duration-200 ease-out"
+                            enter="duration-300 ease-out"
                             enter-from="opacity-0"
                             enter-to="opacity-100"
                             leave="duration-200 ease-in"
@@ -259,7 +259,7 @@
         </TransitionRoot>
 </template>
 <script>
-import { onMounted, watch } from "vue";
+import { ref } from "vue";
 import useDialogs from "../../composables/dialogs/dialogs"
 import addNewOrder from "../../composables/orders/new_order"
 import * as Yup from 'yup';
@@ -280,14 +280,16 @@ export default {
             closeModal();
             emit("add-event");
         }
+
+
         return {
            new_order,
            schema,
            clientData,
-           isOpen,
            show_client_data,
-           closeModal,
+           isOpen,
            openModal,
+           closeModal,
            searchLogins,
            autoComplete,
            addMalfunction,
