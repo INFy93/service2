@@ -23642,7 +23642,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
             enter: "duration-300 ease-out",
             "enter-from": "opacity-0",
             "enter-to": "opacity-100",
-            leave: "duration-200 ease-in",
+            leave: "duration-300 ease-in",
             "leave-from": "opacity-100",
             "leave-to": "opacity-0"
           }, {
@@ -24354,10 +24354,10 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
           return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_TransitionChild, {
             as: "template",
-            enter: "duration-200 ease-out",
+            enter: "duration-300 ease-out",
             "enter-from": "opacity-0",
             "enter-to": "opacity-100",
-            leave: "duration-200 ease-in",
+            leave: "duration-300 ease-in",
             "leave-from": "opacity-100",
             "leave-to": "opacity-0"
           }, {
