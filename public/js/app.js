@@ -24766,7 +24766,7 @@ var _hoisted_31 = {
 };
 var _hoisted_32 = ["onClick"];
 var _hoisted_33 = {
-  "class": "px-2 w-52 py-1 font-medium text-sm whitespace-no-wrap border-b border-gray-200"
+  "class": "px-2 w-52 py-1 text-sm whitespace-no-wrap border-b border-gray-200"
 };
 var _hoisted_34 = {
   "class": "px-1 py-1"

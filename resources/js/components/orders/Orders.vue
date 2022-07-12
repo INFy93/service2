@@ -211,7 +211,7 @@
                         </a>
                     </td>
                     <td
-                        class="px-2 w-52 py-1 font-medium text-sm whitespace-no-wrap border-b border-gray-200"
+                        class="px-2 w-52 py-1 text-sm whitespace-no-wrap border-b border-gray-200"
                     >
                         <Menu as="div" class="relative inline-block text-left">
                             <div>
