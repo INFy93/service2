@@ -24737,21 +24737,21 @@ var _hoisted_27 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
   id: "",
   "class": "rounded focus:outline-none dark:ring-offset-gray-600 dark:focus:ring-gray-500 border-gray-300 dark:border-gray-600 dark:bg-gray-500 dark:text-gray-400"
 })]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", {
-  "class": "px-2 py-4 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-semibold text-gray-500 uppercase tracking-wider"
+  "class": "px-2 py-4 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider"
 }, " № "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", {
-  "class": "px-2 py-1 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-semibold text-gray-500 uppercase tracking-wider"
+  "class": "px-2 py-1 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider"
 }, " Статус "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", {
-  "class": "px-2 py-1 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-semibold text-gray-500 uppercase tracking-wider"
+  "class": "px-2 py-1 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider"
 }, " Создан "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", {
-  "class": "px-2 py-1 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-semibold text-gray-500 uppercase tracking-wider"
+  "class": "px-2 py-1 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider"
 }, " Изделие "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", {
-  "class": "px-2 py-1 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-semibold text-gray-500 uppercase tracking-wider"
+  "class": "px-2 py-1 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider"
 }, " Модель "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", {
-  "class": "px-2 py-1 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-semibold text-gray-500 uppercase tracking-wider"
+  "class": "px-2 py-1 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider"
 }, " Комплектация "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", {
-  "class": "px-2 py-1 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-semibold text-gray-500 uppercase tracking-wider"
+  "class": "px-2 py-1 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider"
 }, " Неисправность "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", {
-  "class": "px-2 py-1 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-semibold text-gray-500 uppercase tracking-wider"
+  "class": "px-2 py-1 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider"
 }, " Клиент ")])], -1
 /* HOISTED */
 );
@@ -24794,7 +24794,7 @@ var _hoisted_46 = {
   "class": "flex items-center"
 };
 var _hoisted_47 = {
-  "class": "text-sm leading-5 font-semibold text-gray-700"
+  "class": "text-sm leading-5 font-medium text-gray-700"
 };
 var _hoisted_48 = {
   "class": "text-sm leading-5 text-gray-500"
@@ -24806,16 +24806,16 @@ var _hoisted_50 = {
   "class": "px-2 py-1 font-medium text-sm whitespace-no-wrap border-b border-gray-200"
 };
 var _hoisted_51 = {
-  "class": "text-sm leading-5 font-semibold text-gray-700"
+  "class": "text-sm leading-5 font-medium text-gray-700"
 };
 var _hoisted_52 = {
   "class": "text-sm leading-5 text-gray-500"
 };
 var _hoisted_53 = {
-  "class": "px-2 py-1 font-medium text-sm whitespace-no-wrap border-b border-gray-200"
+  "class": "px-2 py-1 text-sm whitespace-no-wrap border-b border-gray-200"
 };
 var _hoisted_54 = {
-  "class": "px-2 w-96 py-1 font-medium text-sm whitespace-no-wrap border-b border-gray-200"
+  "class": "px-2 w-96 py-1 text-sm whitespace-no-wrap border-b border-gray-200"
 };
 var _hoisted_55 = {
   "class": "px-2 py-1 font-medium text-sm whitespace-no-wrap border-b border-gray-200"
@@ -24824,7 +24824,7 @@ var _hoisted_56 = {
   "class": "flex items-center"
 };
 var _hoisted_57 = {
-  "class": "text-sm leading-5 font-semibold text-gray-700"
+  "class": "text-sm leading-5 font-medium text-gray-700"
 };
 var _hoisted_58 = {
   "class": "text-sm leading-5 text-gray-500"
@@ -24890,7 +24890,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     }),
     name: "",
     id: "",
-    placeholder: "Поиск по логину, модели или полной модели.",
+    placeholder: "Логин, модель/полная модель, код заказа",
     "class": "w-full pl-3 text-sm text-black border-transparent focus:border-transparent border-none focus:outline-none focus:ring-0 bg-transparent"
   }, null, 512
   /* NEED_PATCH */
@@ -24939,7 +24939,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     }, {
       "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
         return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_MenuButton, {
-          "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["px-4 py-1 inline-flex items-center text-xs leading-5 font-semibold rounded-lg text-white", 'bg-' + order.statuses.color])
+          "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["px-4 py-1 inline-flex items-center text-xs leading-5 font-medium rounded-lg text-white", 'bg-' + order.statuses.color])
         }, {
           "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
             return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)((0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(order.statuses.name) + " ", 1

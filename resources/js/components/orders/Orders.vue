@@ -93,7 +93,7 @@
                     v-model="search"
                     name=""
                     id=""
-                    placeholder="Поиск по логину, модели или полной модели."
+                    placeholder="Логин, модель/полная модель, код заказа"
                     class="w-full pl-3 text-sm text-black border-transparent focus:border-transparent border-none focus:outline-none focus:ring-0 bg-transparent"
                 />
             </div>
@@ -140,42 +140,42 @@
                         />
                     </th>
                     <th
-                        class="px-2 py-4 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-semibold text-gray-500 uppercase tracking-wider"
+                        class="px-2 py-4 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider"
                     >
                         №
                     </th>
                     <th
-                        class="px-2 py-1 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-semibold text-gray-500 uppercase tracking-wider"
+                        class="px-2 py-1 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider"
                     >
                         Статус
                     </th>
                     <th
-                        class="px-2 py-1 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-semibold text-gray-500 uppercase tracking-wider"
+                        class="px-2 py-1 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider"
                     >
                         Создан
                     </th>
                     <th
-                        class="px-2 py-1 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-semibold text-gray-500 uppercase tracking-wider"
+                        class="px-2 py-1 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider"
                     >
                         Изделие
                     </th>
                     <th
-                        class="px-2 py-1 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-semibold text-gray-500 uppercase tracking-wider"
+                        class="px-2 py-1 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider"
                     >
                         Модель
                     </th>
                     <th
-                        class="px-2 py-1 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-semibold text-gray-500 uppercase tracking-wider"
+                        class="px-2 py-1 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider"
                     >
                         Комплектация
                     </th>
                     <th
-                        class="px-2 py-1 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-semibold text-gray-500 uppercase tracking-wider"
+                        class="px-2 py-1 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider"
                     >
                         Неисправность
                     </th>
                     <th
-                        class="px-2 py-1 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-semibold text-gray-500 uppercase tracking-wider"
+                        class="px-2 py-1 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider"
                     >
                         Клиент
                     </th>
@@ -216,7 +216,7 @@
                         <Menu as="div" class="relative inline-block text-left">
                             <div>
                                 <MenuButton
-                                    class="px-4 py-1 inline-flex items-center text-xs leading-5 font-semibold rounded-lg text-white"
+                                    class="px-4 py-1 inline-flex items-center text-xs leading-5 font-medium rounded-lg text-white"
                                     :class="'bg-' + order.statuses.color"
                                 >
                                     {{ order.statuses.name }}
@@ -340,7 +340,7 @@
                         <div class="flex items-center">
                             <div>
                                 <div
-                                    class="text-sm leading-5 font-semibold text-gray-700"
+                                    class="text-sm leading-5 font-medium text-gray-700"
                                 >
                                     {{ order.users.name }}
                                 </div>
@@ -360,7 +360,7 @@
                     >
                         <div>
                                 <div
-                                    class="text-sm leading-5 font-semibold text-gray-700"
+                                    class="text-sm leading-5 font-medium text-gray-700"
                                 >
                                     {{ order.model }}
                                 </div>
@@ -370,12 +370,12 @@
                             </div>
                     </td>
                     <td
-                        class="px-2 py-1 font-medium text-sm whitespace-no-wrap border-b border-gray-200"
+                        class="px-2 py-1 text-sm whitespace-no-wrap border-b border-gray-200"
                     >
                         {{ order.product_complection }}
                     </td>
                     <td
-                        class="px-2 w-96 py-1 font-medium text-sm whitespace-no-wrap border-b border-gray-200"
+                        class="px-2 w-96 py-1 text-sm whitespace-no-wrap border-b border-gray-200"
                     >
                         {{ order.malfunction }}
                     </td>
@@ -385,7 +385,7 @@
                         <div class="flex items-center">
                             <div>
                                 <div
-                                    class="text-sm leading-5 font-semibold text-gray-700"
+                                    class="text-sm leading-5 font-medium text-gray-700"
                                 >
                                     {{ order.client_login }}
                                 </div>
