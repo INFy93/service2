@@ -209,11 +209,11 @@
                             "заказа",
                             "заказов",
                         ])
-                    }}. Выбрать все <strong>{{ orders.total }}</strong
+                    }}. Выбрать все <strong>{{ orders.meta.total }}</strong
                     >?
                     <a
                         href="#"
-                        @click.prevent="selectAllOrders"
+                        @click.prevent="iWillHaveOrders(selectedService)"
                         class="text-blue-600 hover:underline hover:text-blue-700"
                         >Выбрать</a
                     >
@@ -542,12 +542,16 @@
 <script>
 import useOrders from "../../composables/orders/orders";
 import useHelpers from "../../composables/common/common";
+import useSelection from "../../composables/orders/selection_orders";
 import { ref, onMounted, watch } from "vue";
 export default {
     setup(props, ctx) {
         const addOrder = ref(null);
         const changeOrder = ref(null);
-        const { orders, services, selectedService, search, showOnlyOpen, openOrdersCount, checked, selectPage, selectAll, getOrders, newStatus, getServices, getOpenOrdersCount, onlyOpen} = useOrders();
+        const url = ref("");
+
+        const { orders, services, selectedService, search, showOnlyOpen, openOrdersCount, getOrders, newStatus, getServices, getOpenOrdersCount, onlyOpen} = useOrders();
+        const { checked, selectAll, selectPage, iWillHaveOrders } = useSelection();
         const { correctDate, leadingZeros, declOfNum } = useHelpers();
 
         onMounted(() => {
@@ -603,6 +607,10 @@ export default {
             }
         });
 
+        watch(checked, async () => {
+            url.value = "/orders/export/" + checked.value;
+        });
+
         return {
             orders,
             search,
@@ -611,6 +619,8 @@ export default {
             selectPage,
             selectAll,
             checked,
+            url,
+            iWillHaveOrders,
             openOrdersCount,
             showOnlyOpen,
             correctDate,

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Api\OpenOrdersController;
 use App\Http\Controllers\Api\OrderController;
+use App\Http\Controllers\Api\SelectionAndExportController;
 use App\Http\Controllers\Api\ServiceController;
 use App\Http\Controllers\Api\SingleOrder;
 use App\Models\Order;
@@ -33,6 +34,8 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/services', [ServiceController::class, 'getServices']);
 
     Route::get('/open_orders', [OpenOrdersController::class, 'getOpenOrders']);
+
+    Route::get('/select_all', [SelectionAndExportController::class, 'selectAll']);
 
     Route::get('/st', function () {
         Artisan::call('storage:link');
