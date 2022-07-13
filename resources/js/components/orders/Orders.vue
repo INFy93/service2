@@ -608,7 +608,7 @@ export default {
         });
 
         watch(checked, async () => {
-            url.value = "/orders/export/" + checked.value;
+            url.value = "/api/export/" + checked.value;
         });
 
         return {

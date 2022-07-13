@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Models\Order;
+use App\Exports\OrdersExport;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -20,5 +21,12 @@ class SelectionAndExportController extends Controller
         })
         ->orderBy('id', 'desc')
         ->pluck('id');
+    }
+
+    public function export($orders)
+    {
+        $ordersArray = explode(',', $orders);
+
+        return (new OrdersExport($ordersArray))->download('orders.xlsx');
     }
 }

@@ -37,6 +37,8 @@ Route::group(['middleware' => ['auth']], function () {
 
     Route::get('/select_all', [SelectionAndExportController::class, 'selectAll']);
 
+    Route::get('/export/{orders}', [SelectionAndExportController::class, 'export']);
+
     Route::get('/st', function () {
         Artisan::call('storage:link');
 

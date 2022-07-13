@@ -23374,7 +23374,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         while (1) {
           switch (_context9.prev = _context9.next) {
             case 0:
-              url.value = "/orders/export/" + checked.value;
+              url.value = "/api/export/" + checked.value;
 
             case 1:
             case "end":
