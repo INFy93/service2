@@ -46,6 +46,11 @@ class OrderController extends Controller
 
         $order->save();
         $story->save();
+
+        if ($req->status_id == '6')
+        {
+            \Stuff::sendSMS(str_replace(array('(', ')', ' ', '-'), '', $order->client_phone), $req->rem_id);
+        }
     }
 
     public function searchLogin()
