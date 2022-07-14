@@ -38,6 +38,7 @@ import Orders from './components/orders/Orders';
 import AddOrder from './components/dialogs/AddOrder';
 import EditOrder from './components/dialogs/EditOrder';
 import Print from './components/print/Print';
+import Profile from './components/profile/Profile';
 
 import LaravelVuePagination from 'laravel-vue-pagination';
 import { Menu, MenuButton, MenuItems, MenuItem, TransitionRoot, TransitionChild, Dialog, DialogTitle, DialogOverlay } from '@headlessui/vue'
@@ -48,6 +49,7 @@ app.component('orders', Orders);
 app.component('add-order', AddOrder);
 app.component('edit-order', EditOrder);
 app.component('print-order', Print);
+app.component('profile', Profile);
 //pagination
 app.component('Pagination', LaravelVuePagination);
 

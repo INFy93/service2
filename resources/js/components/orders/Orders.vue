@@ -5,7 +5,7 @@
                 <a class="update-button">
                     <button
                         @click.prevent="openOrder"
-                        class="flex items-center justify-center bg-gray-400 hover:bg-green-700 dark:bg-blue-900 dark:hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg"
+                        class="flex items-center justify-center bg-green-500 hover:bg-green-700 dark:bg-blue-900 dark:hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg"
                     >
                         <svg
                             xmlns="http://www.w3.org/2000/svg"

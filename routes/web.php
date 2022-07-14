@@ -25,5 +25,6 @@ Route::get('/',  function () {
 Route::group(['middleware' => ['auth']], function () {
     Route::get('/logout', [LoginController::class, 'logout']);
     Route::view('/orders', 'orders')->name('main');
+    Route::view('/profile', 'profile')->name('profile');
 });
 Auth::routes();

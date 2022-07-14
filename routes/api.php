@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Api\OpenOrdersController;
 use App\Http\Controllers\Api\OrderController;
+use App\Http\Controllers\Api\ProfileController;
 use App\Http\Controllers\Api\SelectionAndExportController;
 use App\Http\Controllers\Api\ServiceController;
 use App\Http\Controllers\Api\SingleOrder;
@@ -38,6 +39,10 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/select_all', [SelectionAndExportController::class, 'selectAll']);
 
     Route::get('/export/{orders}', [SelectionAndExportController::class, 'export']);
+
+    Route::get('/user/{user}', [ProfileController::class, 'getUser']);
+    Route::post('/user/edit', [ProfileController::class, 'storeUser']);
+    Route::post('/user/new_password', [ProfileController::class, 'changePassword']);
 
     Route::get('/st', function () {
         Artisan::call('storage:link');
