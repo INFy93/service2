@@ -39,9 +39,6 @@
             </TabList>
             <TabPanels class="mt-2">
                 <TabPanel
-                :class="[
-                    'bg-gray-100 rounded-xl p-3'
-                ]"
                 ><orders-admin></orders-admin></TabPanel>
                 <TabPanel
                 :class="[

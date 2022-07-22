@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Models\Order;
 use App\Exports\OrdersExport;
+use App\Exports\MonthOrderExport;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -28,5 +29,10 @@ class SelectionAndExportController extends Controller
         $ordersArray = explode(',', $orders);
 
         return (new OrdersExport($ordersArray))->download('orders.xlsx');
+    }
+
+    public function exportMonth()
+    {
+       return (new MonthOrderExport)->download('orders_month.xlsx');
     }
 }

@@ -54,4 +54,5 @@ Route::group(['middleware' => ['auth']], function () {
 
 Route::group(['middleware' => ['auth', 'is_admin']], function () {
     Route::get('/orders_count', [OrdersCountController::class, 'getCount']);
+    Route::get('/month_export', [SelectionAndExportController::class, 'exportMonth']);
 });

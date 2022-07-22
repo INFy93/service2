@@ -350,7 +350,7 @@
                                 </MenuButton>
                             </div>
 
-                            <transition
+                            <Transition
                                 enter-active-class="transition duration-100 ease-out"
                                 enter-from-class="transform scale-95 opacity-0"
                                 enter-to-class="transform scale-100 opacity-100"
@@ -364,25 +364,20 @@
                                     <div class="px-1 py-1">
                                         <MenuItem>
                                             <a
-                                                href="#"
-                                                status_id="1"
-                                                @click.stop.prevent
+
                                                 @click="
                                                     changeStatus(1, order.id)
                                                 "
-                                                class="block py-1 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
+                                                class="cursor-pointer block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
                                                 >Новый</a
                                             >
                                         </MenuItem>
                                         <MenuItem>
                                             <a
-                                                href="#"
-                                                status_id="2"
-                                                @click.stop.prevent
                                                 @click="
                                                     changeStatus(2, order.id)
                                                 "
-                                                class="block py-1 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
+                                                class="cursor-pointer block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
                                                 >В работе</a
                                             >
                                         </MenuItem>
@@ -390,25 +385,19 @@
                                     <div class="px-1 py-1">
                                         <MenuItem>
                                             <a
-                                                href="#"
-                                                status_id="3"
-                                                @click.stop.prevent
                                                 @click="
                                                     changeStatus(3, order.id)
                                                 "
-                                                class="block py-1 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
+                                                class="cursor-pointer block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
                                                 >На согласовании</a
                                             >
                                         </MenuItem>
                                         <MenuItem>
                                             <a
-                                                href="#"
-                                                ref="status4"
-                                                @click.stop.prevent
                                                 @click="
                                                     changeStatus(4, order.id)
                                                 "
-                                                class="block py-1 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
+                                                class="cursor-pointer block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
                                                 >Ждет запчасть</a
                                             >
                                         </MenuItem>
@@ -416,25 +405,19 @@
                                     <div class="px-1 py-1">
                                         <MenuItem>
                                             <a
-                                                href="#"
-                                                status_id="5"
-                                                @click.stop.prevent
                                                 @click="
                                                     changeStatus(5, order.id)
                                                 "
-                                                class="block py-1 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
+                                                class="cursor-pointer block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
                                                 >Готов</a
                                             >
                                         </MenuItem>
                                         <MenuItem>
                                             <a
-                                                href="#"
-                                                status_id="6"
-                                                @click.stop.prevent
                                                 @click="
                                                     changeStatus(6, order.id)
                                                 "
-                                                class="block py-1 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
+                                                class="cursor-pointer block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
                                                 >Закрыт</a
                                             >
                                         </MenuItem>
@@ -442,19 +425,16 @@
                                     <div class="px-1 py-1">
                                         <MenuItem>
                                             <a
-                                                href="#"
-                                                status_id="7"
-                                                @click.stop.prevent
                                                 @click="
                                                     changeStatus(7, order.id)
                                                 "
-                                                class="block py-1 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
+                                                class="cursor-pointer block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
                                                 >Отказ</a
                                             >
                                         </MenuItem>
                                     </div>
                                 </MenuItems>
-                            </transition>
+                            </Transition>
                         </Menu>
                     </td>
                     <td
