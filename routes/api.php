@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\Admin\OrdersCountController;
 use App\Http\Controllers\Api\OpenOrdersController;
 use App\Http\Controllers\Api\OrderController;
 use App\Http\Controllers\Api\ProfileController;
@@ -49,4 +50,8 @@ Route::group(['middleware' => ['auth']], function () {
 
         return Artisan::output();
      });
+});
+
+Route::group(['middleware' => ['auth', 'is_admin']], function () {
+    Route::get('/orders_count', [OrdersCountController::class, 'getCount']);
 });

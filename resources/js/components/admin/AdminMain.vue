@@ -42,7 +42,7 @@
                 :class="[
                     'bg-gray-100 rounded-xl p-3'
                 ]"
-                >Test1</TabPanel>
+                ><orders-admin></orders-admin></TabPanel>
                 <TabPanel
                 :class="[
                     'bg-gray-100 rounded-xl p-3'

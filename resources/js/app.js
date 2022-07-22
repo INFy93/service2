@@ -39,7 +39,11 @@ import AddOrder from './components/dialogs/AddOrder';
 import EditOrder from './components/dialogs/EditOrder';
 import Print from './components/print/Print';
 import Profile from './components/profile/Profile';
+
+//dashboard
 import AdminPanel from './components/admin/AdminMain';
+import OrdersAdmin from './components/admin/orders/OrdersAdmin';
+import OrdersCount from './components/admin/orders/OrdersCount';
 
 import LaravelVuePagination from 'laravel-vue-pagination';
 import { Menu, MenuButton, MenuItems, MenuItem, TransitionRoot, TransitionChild, Dialog, DialogTitle, DialogOverlay, TabGroup, TabList, Tab, TabPanels, TabPanel } from '@headlessui/vue'
@@ -54,6 +58,8 @@ app.component('edit-order', EditOrder);
 app.component('print-order', Print);
 app.component('profile', Profile);
 app.component('admin-panel', AdminPanel);
+app.component('orders-admin', OrdersAdmin);
+app.component('orders-count', OrdersCount);
 
 //pagination
 app.component('Pagination', LaravelVuePagination);
