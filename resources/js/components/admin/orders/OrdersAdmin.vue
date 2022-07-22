@@ -274,6 +274,11 @@
                     >
                         Сервис
                     </th>
+                    <th
+                        class="px-2 py-1 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider"
+                    >
+                        Действия
+                    </th>
                 </tr>
             </thead>
             <tbody>
@@ -376,6 +381,78 @@
                     >
                         {{ order.services.service_name }}
                     </td>
+                     <td
+                        class="px-2 py-1 text-sm whitespace-no-wrap text-gray-700 border-b border-gray-200"
+                    >
+                        <div class="flex items-center">
+                            <a
+                                href="#"
+                                class="flex space-x-1 text-blue-600 hover:underline"
+                            >
+                            </a>
+                            <Menu
+                                as="div"
+                                class="relative inline-block text-left"
+                            >
+                                <div>
+                                    <MenuButton
+                                        class="flex space-x-1 text-blue-600 hover:underline"
+                                    >
+                                        <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            class="h-5 w-5"
+                                            fill="none"
+                                            viewBox="0 0 24 24"
+                                            stroke="currentColor"
+                                            stroke-width="2"
+                                        >
+                                            <path
+                                                stroke-linecap="round"
+                                                stroke-linejoin="round"
+                                                d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"
+                                            />
+                                        </svg>
+                                        <span>Перемещение</span>
+                                    </MenuButton>
+                                </div>
+                                <transition
+                                    enter-active-class="transition duration-100 ease-out"
+                                    enter-from-class="transform scale-95 opacity-0"
+                                    enter-to-class="transform scale-100 opacity-100"
+                                    leave-active-class="transition duration-75 ease-in"
+                                    leave-from-class="transform scale-100 opacity-100"
+                                    leave-to-class="transform scale-95 opacity-0"
+                                >
+                                    <MenuItems
+                                        class="absolute z-10 right-0 w-56 mt-2 origin-top-right bg-white divide-y divide-gray-100 rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
+                                    >
+                                        <div class="px-1 py-1">
+                                            <MenuItem
+                                                as="div"
+                                                v-for="service in services"
+                                                :key="service.id"
+                                            >
+                                                <a
+
+                                                    v-if="
+                                                        service.id !=
+                                                        order.service
+                                                    "
+                                                    onclick="confirm('Переместить заказ?') || event.stopImmediatePropagation()"
+                                                    @click="changeService(order.id, service.id)"
+                                                    class="cursor-pointer flex space-x-1 py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
+                                                >
+                                                    <span>{{
+                                                        service.service_name
+                                                    }}</span>
+                                                </a>
+                                            </MenuItem>
+                                        </div>
+                                    </MenuItems>
+                                </transition>
+                            </Menu>
+                        </div>
+                    </td>
                 </tr>
             </tbody>
         </table>
@@ -401,6 +478,7 @@
 import useOrders from "../../../composables/orders/orders";
 import useHelpers from "../../../composables/common/common";
 import useSelection from "../../../composables/orders/selection_orders";
+import useAdmin from "../../../composables/admin/orders/admin";
 import { ref, onMounted, watch } from "vue";
 export default {
     setup(props, ctx) {
@@ -410,6 +488,7 @@ export default {
         const { orders, services, selectedService, search, showOnlyOpen, getOrders, getServices, onlyOpen} = useOrders();
         const { checked, selectAll, selectPage, iWillHaveOrders } = useSelection();
         const { correctDate, leadingZeros, declOfNum } = useHelpers();
+        const { switchService } = useAdmin();
 
         onMounted(() => {
             getOrders();
@@ -420,7 +499,10 @@ export default {
             await openOrder.value.openEditDialog(id);
         }
 
-
+        const changeService = async (order_id, service) => {
+            await switchService(order_id, service);
+            await getOrders();
+        }
         watch(search, async () => {
             await getOrders()
         });
@@ -470,7 +552,8 @@ export default {
             getOrders,
             getServices,
             openOrder,
-            onlyOpen
+            onlyOpen,
+            changeService
         };
     },
 };

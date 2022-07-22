@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\Admin\AdminController;
 use App\Http\Controllers\Api\Admin\OrdersCountController;
 use App\Http\Controllers\Api\OpenOrdersController;
 use App\Http\Controllers\Api\OrderController;
@@ -54,5 +55,8 @@ Route::group(['middleware' => ['auth']], function () {
 
 Route::group(['middleware' => ['auth', 'is_admin']], function () {
     Route::get('/orders_count', [OrdersCountController::class, 'getCount']);
+
     Route::get('/month_export', [SelectionAndExportController::class, 'exportMonth']);
+
+    Route::get('/switch_service/{order}/{service}', [AdminController::class, 'switchService']);
 });
