@@ -27,4 +27,9 @@ Route::group(['middleware' => ['auth']], function () {
     Route::view('/orders', 'orders')->name('main');
     Route::view('/profile', 'profile')->name('profile');
 });
+
+Route::group(['middleware' => ['auth', 'is_admin'], 'prefix' => 'dashboard'], function () {
+    Route::view('/', 'admin.admin')->name('dashboard');
+});
+
 Auth::routes();

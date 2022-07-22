@@ -39,17 +39,22 @@ import AddOrder from './components/dialogs/AddOrder';
 import EditOrder from './components/dialogs/EditOrder';
 import Print from './components/print/Print';
 import Profile from './components/profile/Profile';
+import AdminPanel from './components/admin/AdminMain';
 
 import LaravelVuePagination from 'laravel-vue-pagination';
-import { Menu, MenuButton, MenuItems, MenuItem, TransitionRoot, TransitionChild, Dialog, DialogTitle, DialogOverlay } from '@headlessui/vue'
+import { Menu, MenuButton, MenuItems, MenuItem, TransitionRoot, TransitionChild, Dialog, DialogTitle, DialogOverlay, TabGroup, TabList, Tab, TabPanels, TabPanel } from '@headlessui/vue'
 import { ChevronDownIcon } from "@heroicons/vue/solid";
 
 const app = createApp({});
+
+//custom components
 app.component('orders', Orders);
 app.component('add-order', AddOrder);
 app.component('edit-order', EditOrder);
 app.component('print-order', Print);
 app.component('profile', Profile);
+app.component('admin-panel', AdminPanel);
+
 //pagination
 app.component('Pagination', LaravelVuePagination);
 
@@ -66,6 +71,13 @@ app.component('TransitionChild', TransitionChild);
 app.component('Dialog', Dialog);
 app.component('DialogTitle', DialogTitle);
 app.component('DialogOverlay', DialogOverlay);
+
+//tabs
+app.component('TabGroup', TabGroup);
+app.component('TabList', TabList);
+app.component('Tab', Tab);
+app.component('TabPanels', TabPanels);
+app.component('TabPanel', TabPanel);
 
 //form
 app.component('Form', Form);
