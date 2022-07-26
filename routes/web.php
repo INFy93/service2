@@ -22,13 +22,13 @@ Route::get('/',  function () {
         return view('auth.login');
     }
 })->name('enter');
-Route::group(['middleware' => ['auth']], function () {
+Route::group(['middleware' => ['auth', 'blocked']], function () {
     Route::get('/logout', [LoginController::class, 'logout']);
     Route::view('/orders', 'orders')->name('main');
     Route::view('/profile', 'profile')->name('profile');
 });
 
-Route::group(['middleware' => ['auth', 'is_admin'], 'prefix' => 'dashboard'], function () {
+Route::group(['middleware' => ['auth', 'is_admin', 'blocked'], 'prefix' => 'dashboard'], function () {
     Route::view('/', 'admin.admin')->name('dashboard');
 });
 

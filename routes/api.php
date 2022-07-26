@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Api\Admin\AdminController;
 use App\Http\Controllers\Api\Admin\OrdersCountController;
+use App\Http\Controllers\Api\Admin\UsersController;
 use App\Http\Controllers\Api\OpenOrdersController;
 use App\Http\Controllers\Api\OrderController;
 use App\Http\Controllers\Api\ProfileController;
@@ -59,4 +60,8 @@ Route::group(['middleware' => ['auth', 'is_admin']], function () {
     Route::get('/month_export', [SelectionAndExportController::class, 'exportMonth']);
 
     Route::get('/switch_service/{order}/{service}', [AdminController::class, 'switchService']);
+
+    Route::get('/users', [UsersController::class, 'getUsers']);
+    Route::get('/user/block/{id}', [UsersController::class, 'blockUser']);
+    Route::post('/user/add', [UsersController::class, 'addUser']);
 });

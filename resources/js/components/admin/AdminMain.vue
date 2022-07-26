@@ -4,7 +4,7 @@
             <TabList class="flex flex-wrap -mb-px font-medium text-center border-b border-gray-200">
                 <Tab v-slot="{ selected }" as="template">
                     <button
-                        class="mr-2 inline-flex p-4 rounded-t-lg border-b-2 border-transparent hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300"
+                        class="mr-2 inline-flex p-4  border-b-2 border-transparent hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300"
                         :class="{ 'border-b-4 border-blue-500' : selected }"
                     >
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
@@ -15,7 +15,7 @@
                 </Tab>
                 <Tab v-slot="{ selected }" as="template">
                     <button
-                       class="mr-2 inline-flex p-4 rounded-t-lg border-b-2 border-transparent hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300"
+                       class="mr-2 inline-flex p-4 border-b-2 border-transparent hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300"
                        :class="{ 'border-b-4 border-blue-500' : selected }"
                     >
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
@@ -26,7 +26,7 @@
                 </Tab>
                 <Tab v-slot="{ selected }" as="template">
                     <button
-                        class="mr-2 inline-flex p-4 rounded-t-lg border-b-2 border-transparent hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300"
+                        class="mr-2 inline-flex p-4 border-b-2 border-transparent hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300"
                         :class="{ 'border-b-4 border-blue-500' : selected }"
                     >
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
@@ -44,7 +44,7 @@
                 :class="[
                     'bg-gray-100 rounded-xl p-3'
                 ]"
-                >Test2</TabPanel>
+                ><users-admin></users-admin></TabPanel>
                 <TabPanel
                 :class="[
                     'bg-gray-100 rounded-xl p-3'

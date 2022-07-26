@@ -45,9 +45,11 @@ import AdminPanel from './components/admin/AdminMain';
 import OrdersAdmin from './components/admin/orders/OrdersAdmin';
 import OrdersCount from './components/admin/orders/OrdersCount';
 import ShowOrder from './components/admin/dialogs/OrderInfo'
+import UsersAdmin from './components/admin/users/UsersAdmin';
+import AddUser from './components/admin/dialogs/AddUser';
 
 import LaravelVuePagination from 'laravel-vue-pagination';
-import { Menu, MenuButton, MenuItems, MenuItem, TransitionRoot, TransitionChild, Dialog, DialogPanel, DialogTitle, DialogOverlay, TabGroup, TabList, Tab, TabPanels, TabPanel } from '@headlessui/vue'
+import { Menu, MenuButton, MenuItems, MenuItem, TransitionRoot, TransitionChild, Dialog, DialogTitle, DialogOverlay, TabGroup, TabList, Tab, TabPanels, TabPanel } from '@headlessui/vue'
 import { ChevronDownIcon } from "@heroicons/vue/solid";
 
 const app = createApp({});
@@ -63,6 +65,8 @@ app.component('admin-panel', AdminPanel);
 app.component('orders-admin', OrdersAdmin);
 app.component('orders-count', OrdersCount);
 app.component('show-order', ShowOrder);
+app.component('users-admin', UsersAdmin);
+app.component('add-user', AddUser);
 
 //pagination
 app.component('Pagination', LaravelVuePagination);
@@ -80,7 +84,6 @@ app.component('TransitionChild', TransitionChild);
 app.component('Dialog', Dialog);
 app.component('DialogTitle', DialogTitle);
 app.component('DialogOverlay', DialogOverlay);
-//app.component('DialogPanel', DialogPanel);
 
 //tabs
 app.component('TabGroup', TabGroup);
