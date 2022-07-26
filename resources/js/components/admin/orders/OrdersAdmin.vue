@@ -311,7 +311,7 @@
                         </a>
                     </td>
                     <td
-                        class="px-2 w-52 py-1 text-sm whitespace-no-wrap border-b border-gray-200"
+                        class="px-2 py-1 text-sm whitespace-no-wrap border-b border-gray-200"
                     >
                         {{ order.statuses.name }}
                     </td>

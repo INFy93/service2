@@ -25197,7 +25197,7 @@ var _hoisted_45 = {
 };
 var _hoisted_46 = ["onClick"];
 var _hoisted_47 = {
-  "class": "px-2 w-52 py-1 text-sm whitespace-no-wrap border-b border-gray-200"
+  "class": "px-2 py-1 text-sm whitespace-no-wrap border-b border-gray-200"
 };
 var _hoisted_48 = {
   "class": "px-2 py-1 font-medium text-sm whitespace-no-wrap border-b border-gray-200"
