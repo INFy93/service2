@@ -84,7 +84,7 @@
                                                 <span class="font-medium">Заметки:</span> {{ order.marks == null ? '-' : order.marks }}
                                             </p>
                                             <p>
-                                                <span class="font-medium">Выполненные работы:</span> {{ order.works == null ? '-' : order.marks }}
+                                                <span class="font-medium">Выполненные работы:</span> {{ order.works == null ? '-' : order.works }}
                                             </p>
                                     </div>
                                 </div>
