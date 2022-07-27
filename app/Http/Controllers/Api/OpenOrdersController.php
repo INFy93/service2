@@ -11,12 +11,18 @@ class OpenOrdersController extends Controller
 {
     public function getOpenOrders()
     {
+        $selected_service = request('service', Auth::user()->service_id);
+        $filter = $selected_service == 'all' ? '' : $selected_service;
+
         if (Auth::user()->is_admin)
         {
             $open_orders = Order::where([
                 ['status', '!=', 6],
                 ['status', '!=', 7]
             ])
+            ->when($filter, function($query) use ($filter) {
+                $query->where('service', $filter);
+            })
             ->count();
         } else
         {
@@ -25,6 +31,9 @@ class OpenOrdersController extends Controller
                 ['status', '!=', 7],
                 ['service', '=', Auth::user()->service_id]
             ])
+            ->when($filter, function($query) use ($filter) {
+                $query->where('service', $filter);
+            })
             ->count();
         }
 

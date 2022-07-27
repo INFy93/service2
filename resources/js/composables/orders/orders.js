@@ -13,7 +13,7 @@ export default function useOrders() {
     const showOnlyOpen = ref(false);
 
     const getOpenOrdersCount = async () => {
-        let response = await axios.get("/api/open_orders");
+        let response = await axios.get("/api/open_orders?service=" + selectedService.value);
         openOrdersCount.value = response.data;
     }
 

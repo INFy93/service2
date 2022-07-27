@@ -566,6 +566,7 @@ export default {
 
         watch(selectedService, async () => {
             await getOrders();
+            await getOpenOrdersCount();
             selectAll.value = false;
             checked.value = [];
 
