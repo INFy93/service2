@@ -11,6 +11,11 @@ export default function useHelpers () {
         }
     }
 
+    function calcDiff(value)
+    {
+        return moment(value).fromNow();
+    }
+
     function leadingZeros(value)
     {
         return value.toString().padStart(5, "0");
@@ -23,6 +28,7 @@ export default function useHelpers () {
 
     return {
        correctDate,
+       calcDiff,
        leadingZeros,
        declOfNum
     }

@@ -24,6 +24,15 @@ export default function addNewOrder() {
         await axios.post("/api/add_order", {
             order: new_order
         }).then(response => {
+           new_order.client_login = ""
+           new_order.client_phone = ""
+           new_order.product = ""
+           new_order.model = ""
+           new_order.model_full_name = ""
+           new_order.product_complection = ""
+           new_order.malfunction = ""
+           new_order.appearance = "Царапины, потертости"
+           new_order.marks = ""
             toast.success("Заказ успешно добавлен!")
         })
         .catch(response => {

@@ -3,11 +3,6 @@
     class="fixed flex flex-col top-14 left-0 w-14 hover:w-48 md:w-48 bg-gray-900 h-full text-white transition-all duration-300 border-none z-10 sidebar">
     <div class="overflow-y-auto overflow-x-hidden flex flex-col justify-between flex-grow">
         <ul class="flex flex-col py-4 space-y-1">
-            <li class="px-5 hidden md:block">
-                <div class="flex flex-row items-center h-8">
-                    <div class="text-sm font-light tracking-wide text-gray-400 uppercase">Заказы</div>
-                </div>
-            </li>
             <li>
                 <a href="{{ route('main') }}"
                     class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-blue-800 dark:hover:bg-gray-600 text-white-600 hover:text-white border-l-4 border-transparent hover:border-blue-500 dark:hover:border-gray-800 pr-6">
@@ -34,9 +29,9 @@
                 </a>
             </li>
                 @if (Auth::user()->is_admin)
-                    <li class="px-5 hidden md:block">
+                    <li class="px-4 hidden md:block">
                         <div class="flex flex-row items-center mt-5 h-8">
-                            <div class="text-sm font-light tracking-wide text-gray-400 uppercase">Настройки</div>
+                            <div class="text-sm font-light tracking-wide text-gray-400 uppercase">Управление</div>
                         </div>
                     </li>
                     <li>

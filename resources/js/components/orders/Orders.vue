@@ -450,6 +450,12 @@
                                 <div class="text-sm leading-5 text-gray-500">
                                     {{ correctDate(order.created_at) }}
                                 </div>
+                                    <div class="flex flex-row space-x-1" v-if="order.status != 6">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                        </svg>
+                                        <span>12ч</span>
+                                </div>
                             </div>
                         </div>
                     </td>
@@ -532,7 +538,7 @@ export default {
 
         const { orders, services, selectedService, search, showOnlyOpen, openOrdersCount, getOrders, newStatus, getServices, getOpenOrdersCount, onlyOpen} = useOrders();
         const { checked, selectAll, selectPage, iWillHaveOrders } = useSelection();
-        const { correctDate, leadingZeros, declOfNum } = useHelpers();
+        const { correctDate, calcDiff, leadingZeros, declOfNum } = useHelpers();
 
         const timer = ref("");
 
@@ -609,6 +615,7 @@ export default {
             openOrdersCount,
             showOnlyOpen,
             correctDate,
+            calcDiff,
             leadingZeros,
             declOfNum,
             getOrders,
