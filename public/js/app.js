@@ -23859,10 +23859,12 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         leadingZeros = _useHelpers.leadingZeros,
         declOfNum = _useHelpers.declOfNum;
 
+    var timer = (0,vue__WEBPACK_IMPORTED_MODULE_3__.ref)("");
     (0,vue__WEBPACK_IMPORTED_MODULE_3__.onMounted)(function () {
       getOrders();
       getServices();
       getOpenOrdersCount();
+      timer.value = setInterval(getOrders, 300000);
     });
 
     var openOrder = /*#__PURE__*/function () {
@@ -24070,6 +24072,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       selectAll: selectAll,
       checked: checked,
       url: url,
+      timer: timer,
       iWillHaveOrders: iWillHaveOrders,
       openOrdersCount: openOrdersCount,
       showOnlyOpen: showOnlyOpen,

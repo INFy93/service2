@@ -534,10 +534,13 @@ export default {
         const { checked, selectAll, selectPage, iWillHaveOrders } = useSelection();
         const { correctDate, leadingZeros, declOfNum } = useHelpers();
 
+        const timer = ref("");
+
         onMounted(() => {
             getOrders();
             getServices();
             getOpenOrdersCount();
+            timer.value = setInterval(getOrders, 300000);
         });
 
         const openOrder = async () => {
@@ -601,6 +604,7 @@ export default {
             selectAll,
             checked,
             url,
+            timer,
             iWillHaveOrders,
             openOrdersCount,
             showOnlyOpen,
