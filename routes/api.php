@@ -10,6 +10,7 @@ use App\Http\Controllers\Api\SelectionAndExportController;
 use App\Http\Controllers\Api\ServiceController;
 use App\Http\Controllers\Api\SingleOrder;
 use App\Models\Order;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -40,6 +41,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/open_orders', [OpenOrdersController::class, 'getOpenOrders']);
 
     Route::get('/select_all', [SelectionAndExportController::class, 'selectAll']);
+    Route::delete('/orders/delete/{orders}', [OrderController::class, 'deleteOrders']);
 
     Route::get('/export/{orders}', [SelectionAndExportController::class, 'export']);
 
@@ -62,6 +64,8 @@ Route::group(['middleware' => ['auth', 'is_admin']], function () {
     Route::get('/switch_service/{order}/{service}', [AdminController::class, 'switchService']);
 
     Route::get('/users', [UsersController::class, 'getUsers']);
+    Route::get('/user/info/{id}', [UsersController::class, 'getSingleUser']);
     Route::get('/user/block/{id}', [UsersController::class, 'blockUser']);
     Route::post('/user/add', [UsersController::class, 'addUser']);
+    Route::post('/user/update', [UsersController::class, 'updateUser']);
 });

@@ -18,6 +18,13 @@ class UsersController extends Controller
         return UsersResource::collection($users);
     }
 
+    public function getSingleUser($id)
+    {
+        $user = User::find($id);
+
+        return response()->json($user);
+    }
+
     public function blockUser($id)
     {
        $user = User::where('id', $id)->first();
@@ -52,6 +59,26 @@ class UsersController extends Controller
 
         User::insert($user);
 
-        return response()->json("Юзер успешно добавлен!");
+        return response()->noContent();
+    }
+
+    public function updateUser(Request $req)
+    {
+        $user = User::where('id', '=', $req->user['id'])->first();
+
+        $user->name = $req->user['name'];
+        $user->login = $req->user['login'];
+        $user->email = $req->user['email'];
+        $user->service_id = $req->user['service_id'];
+        if (isset($req->user['password']))
+        {
+            $user->password =  Hash::make($req->user['password']);
+        }
+        $user->is_admin = $req->user['is_admin'] ? 1 : 0;
+        $user->updated_at = date("Y-m-d H:i:s");
+
+        $user->save();
+
+        return response()->noContent();
     }
 }

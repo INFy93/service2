@@ -28,6 +28,9 @@
                 </a>
         </div>
         <add-user ref="addUser" @add-user-event="getUsers"></add-user>
+
+        <edit-user ref="editUser" @update-user-event="getUsers"></edit-user>
+
         <div v-if="!users.length">
             <img src="/storage/img/load_table.svg" style="margin: 0 auto" />
         </div>
@@ -92,7 +95,7 @@
                     >
                         <a href="#"
                         v-if="currentUser.id != user.id"
-                        @click.prevent=""
+                        @click.prevent="openUserToEdit(user.id)"
                         class="text-blue-600 hover:underline">{{ user.name }}</a>
                         <span v-else class="font-medium">{{ user.name }}</span>
                     </td>
@@ -165,6 +168,7 @@ export default{
         const { users, currentUser, getUsers, blockUser } = useUsers();
         const { correctDate } = useHelpers();
         const addUser = ref(null);
+        const editUser = ref(null);
 
         onMounted(() => {
             getUsers();
@@ -179,12 +183,18 @@ export default{
             await addUser.value.openModal();
         }
 
+        const openUserToEdit = async (id) => {
+            await editUser.value.openUserEditDialog(id);
+        }
+
         return {
             users,
             currentUser,
             closeUser,
             openUser,
+            openUserToEdit,
             addUser,
+            editUser,
             getUsers,
             correctDate,
             closeUser,

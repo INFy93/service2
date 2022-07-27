@@ -105,4 +105,13 @@ class OrderController extends Controller
         return response()->json("Заказ успешно добавлен");
     }
 
+    public function deleteOrders($orders)
+    {
+        $orderArray = explode(',', $orders);
+
+        Order::whereKey($orderArray)->delete();
+
+        return response()->noContent();
+    }
+
 }
