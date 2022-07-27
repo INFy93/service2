@@ -1,8 +1,8 @@
  <!-- Header -->
  <div class="fixed w-full flex items-center justify-between h-14 text-white z-10">
-    <div class="flex items-center justify-start md:justify-start pl-3 w-14 md:w-48 h-14 bg-gray-800 border-none">
+    <div class="flex items-center justify-start md:justify-start w-14 md:w-48 h-14 bg-gray-800 border-none">
+    <img src="/storage/img/logo1.png" alt="" style="max-width: 45%; margin: 0 auto">
 
-      <span class="hidden md:block">Заказы</span>
     </div>
     <div class="flex justify-between items-center h-14 bg-gray-200 header-right">
       <ul class="flex items-center text-gray-700 ml-auto">
