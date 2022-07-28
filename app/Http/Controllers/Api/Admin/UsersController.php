@@ -13,6 +13,7 @@ class UsersController extends Controller
     public function getUsers()
     {
         $users = User::with(['roles', 'services'])
+        ->orderBy('is_admin', 'desc')
         ->get();
 
         return UsersResource::collection($users);
