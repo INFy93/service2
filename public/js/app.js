@@ -23852,7 +23852,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         checked = _useSelection.checked,
         selectAll = _useSelection.selectAll,
         selectPage = _useSelection.selectPage,
-        iWillHaveOrders = _useSelection.iWillHaveOrders;
+        iWillHaveOrders = _useSelection.iWillHaveOrders,
+        removeOrders = _useSelection.removeOrders;
 
     var _useHelpers = (0,_composables_common_common__WEBPACK_IMPORTED_MODULE_1__["default"])(),
         correctDate = _useHelpers.correctDate,
@@ -23968,22 +23969,33 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       };
     }();
 
-    (0,vue__WEBPACK_IMPORTED_MODULE_3__.watch)(search, /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee5() {
-      return _regeneratorRuntime().wrap(function _callee5$(_context5) {
-        while (1) {
-          switch (_context5.prev = _context5.next) {
-            case 0:
-              _context5.next = 2;
-              return getOrders();
+    var deleteOrders = /*#__PURE__*/function () {
+      var _ref5 = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee5() {
+        return _regeneratorRuntime().wrap(function _callee5$(_context5) {
+          while (1) {
+            switch (_context5.prev = _context5.next) {
+              case 0:
+                _context5.next = 2;
+                return removeOrders();
 
-            case 2:
-            case "end":
-              return _context5.stop();
+              case 2:
+                _context5.next = 4;
+                return getOrders();
+
+              case 4:
+              case "end":
+                return _context5.stop();
+            }
           }
-        }
-      }, _callee5);
-    })));
-    (0,vue__WEBPACK_IMPORTED_MODULE_3__.watch)(selectedService, /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee6() {
+        }, _callee5);
+      }));
+
+      return function deleteOrders() {
+        return _ref5.apply(this, arguments);
+      };
+    }();
+
+    (0,vue__WEBPACK_IMPORTED_MODULE_3__.watch)(search, /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee6() {
       return _regeneratorRuntime().wrap(function _callee6$(_context6) {
         while (1) {
           switch (_context6.prev = _context6.next) {
@@ -23992,21 +24004,13 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               return getOrders();
 
             case 2:
-              _context6.next = 4;
-              return getOpenOrdersCount();
-
-            case 4:
-              selectAll.value = false;
-              checked.value = [];
-
-            case 6:
             case "end":
               return _context6.stop();
           }
         }
       }, _callee6);
     })));
-    (0,vue__WEBPACK_IMPORTED_MODULE_3__.watch)(showOnlyOpen, /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee7() {
+    (0,vue__WEBPACK_IMPORTED_MODULE_3__.watch)(selectedService, /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee7() {
       return _regeneratorRuntime().wrap(function _callee7$(_context7) {
         while (1) {
           switch (_context7.prev = _context7.next) {
@@ -24015,17 +24019,40 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               return getOrders();
 
             case 2:
+              _context7.next = 4;
+              return getOpenOrdersCount();
+
+            case 4:
+              selectAll.value = false;
+              checked.value = [];
+
+            case 6:
             case "end":
               return _context7.stop();
           }
         }
       }, _callee7);
     })));
+    (0,vue__WEBPACK_IMPORTED_MODULE_3__.watch)(showOnlyOpen, /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee8() {
+      return _regeneratorRuntime().wrap(function _callee8$(_context8) {
+        while (1) {
+          switch (_context8.prev = _context8.next) {
+            case 0:
+              _context8.next = 2;
+              return getOrders();
+
+            case 2:
+            case "end":
+              return _context8.stop();
+          }
+        }
+      }, _callee8);
+    })));
     (0,vue__WEBPACK_IMPORTED_MODULE_3__.watch)(selectPage, /*#__PURE__*/function () {
-      var _ref8 = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee8(value) {
-        return _regeneratorRuntime().wrap(function _callee8$(_context8) {
+      var _ref9 = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee9(value) {
+        return _regeneratorRuntime().wrap(function _callee9$(_context9) {
           while (1) {
-            switch (_context8.prev = _context8.next) {
+            switch (_context9.prev = _context9.next) {
               case 0:
                 checked.value = [];
 
@@ -24040,29 +24067,29 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
               case 2:
               case "end":
-                return _context8.stop();
+                return _context9.stop();
             }
           }
-        }, _callee8);
+        }, _callee9);
       }));
 
       return function (_x4) {
-        return _ref8.apply(this, arguments);
+        return _ref9.apply(this, arguments);
       };
     }());
-    (0,vue__WEBPACK_IMPORTED_MODULE_3__.watch)(checked, /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee9() {
-      return _regeneratorRuntime().wrap(function _callee9$(_context9) {
+    (0,vue__WEBPACK_IMPORTED_MODULE_3__.watch)(checked, /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee10() {
+      return _regeneratorRuntime().wrap(function _callee10$(_context10) {
         while (1) {
-          switch (_context9.prev = _context9.next) {
+          switch (_context10.prev = _context10.next) {
             case 0:
               url.value = "/api/export/" + checked.value;
 
             case 1:
             case "end":
-              return _context9.stop();
+              return _context10.stop();
           }
         }
-      }, _callee9);
+      }, _callee10);
     })));
     return {
       orders: orders,
@@ -24082,6 +24109,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       leadingZeros: leadingZeros,
       declOfNum: declOfNum,
       getOrders: getOrders,
+      deleteOrders: deleteOrders,
       getServices: getServices,
       changeStatus: changeStatus,
       addOrder: addOrder,
@@ -28126,9 +28154,8 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
                   return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
                     href: "#",
                     onclick: "confirm('Удалить выбранные заказы?') || event.stopImmediatePropagation()",
-                    status_id: "1",
                     onClick: _cache[3] || (_cache[3] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.withModifiers)(function () {
-                      return _ctx.deleteOrders && _ctx.deleteOrders.apply(_ctx, arguments);
+                      return $setup.deleteOrders && $setup.deleteOrders.apply($setup, arguments);
                     }, ["prevent"])),
                     "class": "flex space-x-1 py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
                   }, _hoisted_23)];
@@ -28920,7 +28947,17 @@ var _hoisted_14 = {
   "class": "md:grid md:grid-cols-3 md:gap-6"
 };
 
-var _hoisted_15 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"md:col-span-1 flex justify-between\"><div class=\"px-4 sm:px-0\"><h3 class=\"text-lg font-semibold text-gray-900 dark:text-gray-400\"> Смена пароля </h3><p class=\"mt-1 text-sm text-gray-600 dark:text-gray-500\"> Пароль должен быть длиннее 8 символов и использовать буквы разного регистра и специмволы (&quot;&quot;, - и тп). </p><p class=\"mt-5 text-sm text-gray-600 dark:text-gray-500\"><span class=\"font-semibold text-black\">Читаем ВНИМАТЕЛЬНО:</span> <br> Ваши пароли шифруются и в базе хранятся в ЗАШИФРОВАННОМ виде. Если вы его забудете - я не смогу его вам напомнить! <br> Если все же забыли пароль или в этом разделе сделали пароль в виде белиберды и забыли через минуту - напишите мне, скину вручную. </p></div></div>", 1);
+var _hoisted_15 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "md:col-span-1 flex justify-between"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "px-4 sm:px-0"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h3", {
+  "class": "text-lg font-semibold text-gray-900 dark:text-gray-400"
+}, " Смена пароля "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
+  "class": "mt-1 text-sm text-gray-600 dark:text-gray-500"
+}, " Пароль должен быть длиннее 8 символов и использовать буквы разного регистра и специмволы (\"\", - и тп). ")])], -1
+/* HOISTED */
+);
 
 var _hoisted_16 = {
   "class": "md:mt-0 md:col-span-2"
@@ -30087,11 +30124,42 @@ function useSelection() {
     };
   }();
 
+  var removeOrders = /*#__PURE__*/function () {
+    var _ref2 = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee2() {
+      return _regeneratorRuntime().wrap(function _callee2$(_context2) {
+        while (1) {
+          switch (_context2.prev = _context2.next) {
+            case 0:
+              axios__WEBPACK_IMPORTED_MODULE_2___default()["delete"]("/api/orders/delete/" + checked.value).then(function (response) {
+                if (response.status === 204) {
+                  toast.success("Выбранные заказы успешно удалены.");
+                  checked.value = [];
+                } else {
+                  toast.error("Что-то пошло не так. См. консоль...");
+                }
+              })["catch"](function (error) {
+                toast.error("Ошибка. Смотрим консоль и кидаем мне скрин");
+              });
+
+            case 1:
+            case "end":
+              return _context2.stop();
+          }
+        }
+      }, _callee2);
+    }));
+
+    return function removeOrders() {
+      return _ref2.apply(this, arguments);
+    };
+  }();
+
   return {
     selectAll: selectAll,
     selectPage: selectPage,
     checked: checked,
-    iWillHaveOrders: iWillHaveOrders
+    iWillHaveOrders: iWillHaveOrders,
+    removeOrders: removeOrders
   };
 }
 

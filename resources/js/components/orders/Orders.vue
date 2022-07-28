@@ -126,7 +126,6 @@
                                     <a
                                         href="#"
                                         onclick="confirm('Удалить выбранные заказы?') || event.stopImmediatePropagation()"
-                                        status_id="1"
                                         @click.prevent="deleteOrders"
                                         class="flex space-x-1 py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
                                     >
@@ -537,7 +536,7 @@ export default {
         const url = ref("");
 
         const { orders, services, selectedService, search, showOnlyOpen, openOrdersCount, getOrders, newStatus, getServices, getOpenOrdersCount, onlyOpen} = useOrders();
-        const { checked, selectAll, selectPage, iWillHaveOrders } = useSelection();
+        const { checked, selectAll, selectPage, iWillHaveOrders, removeOrders } = useSelection();
         const { correctDate, calcDiff, leadingZeros, declOfNum } = useHelpers();
 
         const timer = ref("");
@@ -567,6 +566,11 @@ export default {
             await newStatus(status_id, order_id);
             await getOrders();
             await getOpenOrdersCount();
+        }
+
+        const deleteOrders = async () => {
+            await removeOrders();
+            await getOrders();
         }
 
         watch(search, async () => {
@@ -619,6 +623,7 @@ export default {
             leadingZeros,
             declOfNum,
             getOrders,
+            deleteOrders,
             getServices,
             changeStatus,
             addOrder,

@@ -19,10 +19,27 @@ export default function useSelection() {
     });
     }
 
+    const removeOrders = async () => {
+        axios.delete("/api/orders/delete/" + checked.value).then(response => {
+            if (response.status === 204)
+            {
+                toast.success("Выбранные заказы успешно удалены.");
+                checked.value = [];
+            } else
+            {
+                toast.error("Что-то пошло не так. См. консоль...")
+            }
+        }).catch(error => {
+            toast.error("Ошибка. Смотрим консоль и кидаем мне скрин")
+        })
+    }
+
+
     return {
         selectAll,
         selectPage,
         checked,
-        iWillHaveOrders
+        iWillHaveOrders,
+        removeOrders
     }
 }

@@ -52,8 +52,7 @@
                     </li>
                 @endif
         </ul>
-        <p class="mb-14 px-5 py-3 hidden md:block text-center text-xs">© INFy. {{ date('Y') }}. Принимаю крипту, в
-            лс</p>
+        <p class="mb-14 px-5 py-3 hidden md:block text-center text-xs">© INFy. {{ date('Y') }}.</p>
     </div>
 </div>
 <!-- ./Sidebar -->
