@@ -48,6 +48,7 @@ import ShowOrder from './components/admin/dialogs/OrderInfo'
 import UsersAdmin from './components/admin/users/UsersAdmin';
 import AddUser from './components/admin/dialogs/AddUser';
 import EditUser from './components/admin/dialogs/EditUser';
+import Analytics from './components/admin/analytics/Analytics';
 
 import LaravelVuePagination from 'laravel-vue-pagination';
 import { Menu, MenuButton, MenuItems, MenuItem, TransitionRoot, TransitionChild, Dialog, DialogTitle, DialogOverlay, TabGroup, TabList, Tab, TabPanels, TabPanel } from '@headlessui/vue'
@@ -69,6 +70,7 @@ app.component('show-order', ShowOrder);
 app.component('users-admin', UsersAdmin);
 app.component('add-user', AddUser);
 app.component('edit-user', EditUser);
+app.component('analytics', Analytics);
 
 //pagination
 app.component('Pagination', LaravelVuePagination);

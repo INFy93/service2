@@ -29094,7 +29094,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var maska__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! maska */ "./node_modules/maska/dist/maska.esm.js");
 /* harmony import */ var vue_toastification__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vue-toastification */ "./node_modules/vue-toastification/dist/index.mjs");
 /* harmony import */ var vue_toastification_dist_index_css__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! vue-toastification/dist/index.css */ "./node_modules/vue-toastification/dist/index.css");
-/* harmony import */ var vee_validate__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! vee-validate */ "./node_modules/vee-validate/dist/vee-validate.esm.js");
+/* harmony import */ var vee_validate__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! vee-validate */ "./node_modules/vee-validate/dist/vee-validate.esm.js");
 /* harmony import */ var _plugins_VueHtmlToPaper__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./plugins/VueHtmlToPaper */ "./resources/js/plugins/VueHtmlToPaper.js");
 /* harmony import */ var _components_orders_Orders__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/orders/Orders */ "./resources/js/components/orders/Orders.vue");
 /* harmony import */ var _components_dialogs_AddOrder__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/dialogs/AddOrder */ "./resources/js/components/dialogs/AddOrder.vue");
@@ -29108,12 +29108,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_admin_users_UsersAdmin__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./components/admin/users/UsersAdmin */ "./resources/js/components/admin/users/UsersAdmin.vue");
 /* harmony import */ var _components_admin_dialogs_AddUser__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./components/admin/dialogs/AddUser */ "./resources/js/components/admin/dialogs/AddUser.vue");
 /* harmony import */ var _components_admin_dialogs_EditUser__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./components/admin/dialogs/EditUser */ "./resources/js/components/admin/dialogs/EditUser.vue");
-/* harmony import */ var laravel_vue_pagination__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! laravel-vue-pagination */ "./node_modules/laravel-vue-pagination/dist/laravel-vue-pagination.es.js");
-/* harmony import */ var _headlessui_vue__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! @headlessui/vue */ "./node_modules/@headlessui/vue/dist/components/menu/menu.js");
-/* harmony import */ var _headlessui_vue__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! @headlessui/vue */ "./node_modules/@headlessui/vue/dist/components/transitions/transition.js");
-/* harmony import */ var _headlessui_vue__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! @headlessui/vue */ "./node_modules/@headlessui/vue/dist/components/dialog/dialog.js");
-/* harmony import */ var _headlessui_vue__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! @headlessui/vue */ "./node_modules/@headlessui/vue/dist/components/tabs/tabs.js");
-/* harmony import */ var _heroicons_vue_solid__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! @heroicons/vue/solid */ "./node_modules/@heroicons/vue/solid/esm/ChevronDownIcon.js");
+/* harmony import */ var _components_admin_analytics_Analytics__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./components/admin/analytics/Analytics */ "./resources/js/components/admin/analytics/Analytics.vue");
+/* harmony import */ var laravel_vue_pagination__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! laravel-vue-pagination */ "./node_modules/laravel-vue-pagination/dist/laravel-vue-pagination.es.js");
+/* harmony import */ var _headlessui_vue__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! @headlessui/vue */ "./node_modules/@headlessui/vue/dist/components/menu/menu.js");
+/* harmony import */ var _headlessui_vue__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! @headlessui/vue */ "./node_modules/@headlessui/vue/dist/components/transitions/transition.js");
+/* harmony import */ var _headlessui_vue__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! @headlessui/vue */ "./node_modules/@headlessui/vue/dist/components/dialog/dialog.js");
+/* harmony import */ var _headlessui_vue__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! @headlessui/vue */ "./node_modules/@headlessui/vue/dist/components/tabs/tabs.js");
+/* harmony import */ var _heroicons_vue_solid__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! @heroicons/vue/solid */ "./node_modules/@heroicons/vue/solid/esm/ChevronDownIcon.js");
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -29162,6 +29163,7 @@ var p_options = {
 
 
 
+
 var app = (0,vue__WEBPACK_IMPORTED_MODULE_0__.createApp)({}); //custom components
 
 app.component('orders', _components_orders_Orders__WEBPACK_IMPORTED_MODULE_5__["default"]);
@@ -29175,31 +29177,32 @@ app.component('orders-count', _components_admin_orders_OrdersCount__WEBPACK_IMPO
 app.component('show-order', _components_admin_dialogs_OrderInfo__WEBPACK_IMPORTED_MODULE_13__["default"]);
 app.component('users-admin', _components_admin_users_UsersAdmin__WEBPACK_IMPORTED_MODULE_14__["default"]);
 app.component('add-user', _components_admin_dialogs_AddUser__WEBPACK_IMPORTED_MODULE_15__["default"]);
-app.component('edit-user', _components_admin_dialogs_EditUser__WEBPACK_IMPORTED_MODULE_16__["default"]); //pagination
+app.component('edit-user', _components_admin_dialogs_EditUser__WEBPACK_IMPORTED_MODULE_16__["default"]);
+app.component('analytics', _components_admin_analytics_Analytics__WEBPACK_IMPORTED_MODULE_17__["default"]); //pagination
 
-app.component('Pagination', laravel_vue_pagination__WEBPACK_IMPORTED_MODULE_17__["default"]); //dropdown
+app.component('Pagination', laravel_vue_pagination__WEBPACK_IMPORTED_MODULE_18__["default"]); //dropdown
 
-app.component('Menu', _headlessui_vue__WEBPACK_IMPORTED_MODULE_18__.Menu);
-app.component('MenuButton', _headlessui_vue__WEBPACK_IMPORTED_MODULE_18__.MenuButton);
-app.component('MenuItems', _headlessui_vue__WEBPACK_IMPORTED_MODULE_18__.MenuItems);
-app.component('MenuItem', _headlessui_vue__WEBPACK_IMPORTED_MODULE_18__.MenuItem);
-app.component('ChevronDownIcon', _heroicons_vue_solid__WEBPACK_IMPORTED_MODULE_19__["default"]); //dialog
+app.component('Menu', _headlessui_vue__WEBPACK_IMPORTED_MODULE_19__.Menu);
+app.component('MenuButton', _headlessui_vue__WEBPACK_IMPORTED_MODULE_19__.MenuButton);
+app.component('MenuItems', _headlessui_vue__WEBPACK_IMPORTED_MODULE_19__.MenuItems);
+app.component('MenuItem', _headlessui_vue__WEBPACK_IMPORTED_MODULE_19__.MenuItem);
+app.component('ChevronDownIcon', _heroicons_vue_solid__WEBPACK_IMPORTED_MODULE_20__["default"]); //dialog
 
-app.component('TransitionRoot', _headlessui_vue__WEBPACK_IMPORTED_MODULE_20__.TransitionRoot);
-app.component('TransitionChild', _headlessui_vue__WEBPACK_IMPORTED_MODULE_20__.TransitionChild);
-app.component('Dialog', _headlessui_vue__WEBPACK_IMPORTED_MODULE_21__.Dialog);
-app.component('DialogTitle', _headlessui_vue__WEBPACK_IMPORTED_MODULE_21__.DialogTitle);
-app.component('DialogOverlay', _headlessui_vue__WEBPACK_IMPORTED_MODULE_21__.DialogOverlay); //tabs
+app.component('TransitionRoot', _headlessui_vue__WEBPACK_IMPORTED_MODULE_21__.TransitionRoot);
+app.component('TransitionChild', _headlessui_vue__WEBPACK_IMPORTED_MODULE_21__.TransitionChild);
+app.component('Dialog', _headlessui_vue__WEBPACK_IMPORTED_MODULE_22__.Dialog);
+app.component('DialogTitle', _headlessui_vue__WEBPACK_IMPORTED_MODULE_22__.DialogTitle);
+app.component('DialogOverlay', _headlessui_vue__WEBPACK_IMPORTED_MODULE_22__.DialogOverlay); //tabs
 
-app.component('TabGroup', _headlessui_vue__WEBPACK_IMPORTED_MODULE_22__.TabGroup);
-app.component('TabList', _headlessui_vue__WEBPACK_IMPORTED_MODULE_22__.TabList);
-app.component('Tab', _headlessui_vue__WEBPACK_IMPORTED_MODULE_22__.Tab);
-app.component('TabPanels', _headlessui_vue__WEBPACK_IMPORTED_MODULE_22__.TabPanels);
-app.component('TabPanel', _headlessui_vue__WEBPACK_IMPORTED_MODULE_22__.TabPanel); //form
+app.component('TabGroup', _headlessui_vue__WEBPACK_IMPORTED_MODULE_23__.TabGroup);
+app.component('TabList', _headlessui_vue__WEBPACK_IMPORTED_MODULE_23__.TabList);
+app.component('Tab', _headlessui_vue__WEBPACK_IMPORTED_MODULE_23__.Tab);
+app.component('TabPanels', _headlessui_vue__WEBPACK_IMPORTED_MODULE_23__.TabPanels);
+app.component('TabPanel', _headlessui_vue__WEBPACK_IMPORTED_MODULE_23__.TabPanel); //form
 
-app.component('Form', vee_validate__WEBPACK_IMPORTED_MODULE_23__.Form);
-app.component('Field', vee_validate__WEBPACK_IMPORTED_MODULE_23__.Field);
-app.component('ErrorMessage', vee_validate__WEBPACK_IMPORTED_MODULE_23__.ErrorMessage); //app use some plugins
+app.component('Form', vee_validate__WEBPACK_IMPORTED_MODULE_24__.Form);
+app.component('Field', vee_validate__WEBPACK_IMPORTED_MODULE_24__.Field);
+app.component('ErrorMessage', vee_validate__WEBPACK_IMPORTED_MODULE_24__.ErrorMessage); //app use some plugins
 
 app.use(maska__WEBPACK_IMPORTED_MODULE_1__["default"]);
 app.use(vue_toastification__WEBPACK_IMPORTED_MODULE_2__["default"], options);
@@ -83891,6 +83894,27 @@ const __exports__ = /*#__PURE__*/(0,C_laragon_www_service2_node_modules_vue_load
 /* hot reload */
 if (false) {}
 
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__exports__);
+
+/***/ }),
+
+/***/ "./resources/js/components/admin/analytics/Analytics.vue":
+/*!***************************************************************!*\
+  !*** ./resources/js/components/admin/analytics/Analytics.vue ***!
+  \***************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var C_laragon_www_service2_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
+const script = {}
+
+;
+const __exports__ = /*#__PURE__*/(0,C_laragon_www_service2_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_0__["default"])(script, [['__file',"resources/js/components/admin/analytics/Analytics.vue"]])
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__exports__);
 
