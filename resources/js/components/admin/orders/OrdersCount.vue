@@ -12,7 +12,7 @@
                                     <p v-if="!Object.keys(counts).length">
                                         <img
                                         src="/storage/img/load_table.svg"
-                                        style="width: 34px; margin: 0 auto;"
+                                        style="width: 36px; margin: 0 auto;"
                                     />
                                     </p>
                                    <p class="font-bold text-3xl">{{ counts.total }}</p>
@@ -33,7 +33,7 @@
                                     <p v-if="!Object.keys(counts).length">
                                         <img
                                         src="/storage/img/load_table.svg"
-                                        style="width: 34px; margin: 0 auto;"
+                                        style="width: 36px; margin: 0 auto;"
                                     />
                                     </p>
                                     <p class="font-bold text-3xl">{{ counts.open }}</p>
@@ -54,7 +54,7 @@
                                     <p v-if="!Object.keys(counts).length">
                                         <img
                                         src="/storage/img/load_table.svg"
-                                        style="width: 34px; margin: 0 auto;"
+                                        style="width: 36px; margin: 0 auto;"
                                     />
                                     </p>
                                     <p class="font-bold text-3xl">{{ counts.at_work }}</p>

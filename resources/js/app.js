@@ -51,7 +51,7 @@ import EditUser from './components/admin/dialogs/EditUser';
 import Analytics from './components/admin/analytics/Analytics';
 
 import LaravelVuePagination from 'laravel-vue-pagination';
-import { Menu, MenuButton, MenuItems, MenuItem, TransitionRoot, TransitionChild, Dialog, DialogTitle, DialogOverlay, TabGroup, TabList, Tab, TabPanels, TabPanel } from '@headlessui/vue'
+import { Menu, MenuButton, MenuItems, MenuItem, TransitionRoot, TransitionChild, Dialog, DialogTitle, DialogOverlay, TabGroup, TabList, Tab, TabPanels, TabPanel,  RadioGroup, RadioGroupLabel, RadioGroupDescription, RadioGroupOption } from '@headlessui/vue'
 import { ChevronDownIcon } from "@heroicons/vue/solid";
 
 const app = createApp({});
@@ -95,6 +95,12 @@ app.component('TabList', TabList);
 app.component('Tab', Tab);
 app.component('TabPanels', TabPanels);
 app.component('TabPanel', TabPanel);
+
+//radio group
+app.component('RadioGroup', RadioGroup);
+app.component('RadioGroupLabel', RadioGroupLabel);
+app.component('RadioGroupDescription', RadioGroupDescription);
+app.component('RadioGroupOption', RadioGroupOption);
 
 //form
 app.component('Form', Form);

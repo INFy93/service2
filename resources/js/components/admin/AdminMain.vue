@@ -49,7 +49,7 @@
                 :class="[
                     'bg-gray-100 rounded-xl p-3'
                 ]"
-                >test3</TabPanel>
+                ><analytics></analytics></TabPanel>
             </TabPanels>
         </TabGroup>
     </div>
