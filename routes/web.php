@@ -32,4 +32,6 @@ Route::group(['middleware' => ['auth', 'is_admin', 'blocked'], 'prefix' => 'dash
     Route::view('/', 'admin.admin')->name('dashboard');
 });
 
+Route::view('/client', 'client');
+
 Auth::routes();

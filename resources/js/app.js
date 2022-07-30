@@ -39,7 +39,7 @@ import AddOrder from './components/dialogs/AddOrder';
 import EditOrder from './components/dialogs/EditOrder';
 import Print from './components/print/Print';
 import Profile from './components/profile/Profile';
-
+import Client from './components/client/Client';
 //dashboard
 import AdminPanel from './components/admin/AdminMain';
 import OrdersAdmin from './components/admin/orders/OrdersAdmin';
@@ -62,6 +62,7 @@ app.component('add-order', AddOrder);
 app.component('edit-order', EditOrder);
 app.component('print-order', Print);
 app.component('profile', Profile);
+app.component('client', Client);
 
 app.component('admin-panel', AdminPanel);
 app.component('orders-admin', OrdersAdmin);

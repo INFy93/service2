@@ -3,6 +3,7 @@
 use App\Http\Controllers\Api\Admin\AdminController;
 use App\Http\Controllers\Api\Admin\OrdersCountController;
 use App\Http\Controllers\Api\Admin\UsersController;
+use App\Http\Controllers\Api\ClientController;
 use App\Http\Controllers\Api\OpenOrdersController;
 use App\Http\Controllers\Api\OrderController;
 use App\Http\Controllers\Api\ProfileController;
@@ -24,6 +25,8 @@ use Illuminate\Support\Facades\Route;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
+
+Route::get('/code', [ClientController::class, 'getOrderInfoByCode']);
 
 Route::group(['middleware' => ['auth']], function () {
 
