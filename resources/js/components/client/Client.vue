@@ -29,7 +29,7 @@
                 <p><strong>Статус:</strong> {{ orderInfo[0].statuses.name }}</p>
 
         </div>
-            <div v-if="noOrder" class="mt-5 text-sm text-red-500" style="width: 25rem;">Заказ не найден. Проверьте правильность ввода кода заказа. </div>
+            <div v-if="noOrder" class="mt-5 text-sm text-red-500">Заказ не найден. Проверьте правильность ввода кода заказа. </div>
         </div>
 </template>
 
