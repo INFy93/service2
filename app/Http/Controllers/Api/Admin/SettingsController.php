@@ -4,13 +4,19 @@ namespace App\Http\Controllers\Api\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Setting;
 
 class SettingsController extends Controller
 {
     public function getSettings()
     {
-        $settings = config('defaults.settings');
+        $settings = Setting::all();
 
-        return $settings['pagination']['per_page'];
+        if (!count($settings))
+        {
+            $settings = config('defaults.settings');
+        }
+
+        return $settings;
     }
 }
