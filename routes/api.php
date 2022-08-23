@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Api\Admin\AdminController;
 use App\Http\Controllers\Api\Admin\OrdersCountController;
+use App\Http\Controllers\Api\Admin\SettingsController;
 use App\Http\Controllers\Api\Admin\UsersController;
 use App\Http\Controllers\Api\ClientController;
 use App\Http\Controllers\Api\OpenOrdersController;
@@ -72,4 +73,6 @@ Route::group(['middleware' => ['auth', 'is_admin']], function () {
     Route::get('/user/block/{id}', [UsersController::class, 'blockUser']);
     Route::post('/user/add', [UsersController::class, 'addUser']);
     Route::post('/user/update', [UsersController::class, 'updateUser']);
+
+    Route::get('/settings', [SettingsController::class, 'getSettings']);
 });
