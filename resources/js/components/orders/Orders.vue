@@ -546,7 +546,10 @@ export default {
             getOrders();
             getServices();
             getOpenOrdersCount();
-            timer.value = setInterval(getOrders, 300000);
+            timer.value = setInterval(function() {
+                getOrders(),
+                getOpenOrdersCount()
+            } , 300000);
         });
 
         const openOrder = async () => {

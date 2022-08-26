@@ -75,4 +75,5 @@ Route::group(['middleware' => ['auth', 'is_admin']], function () {
     Route::post('/user/update', [UsersController::class, 'updateUser']);
 
     Route::get('/settings', [SettingsController::class, 'getSettings']);
+    Route::get('/settings/setup', [SettingsController::class, 'firstSetup']);
 });
