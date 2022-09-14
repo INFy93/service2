@@ -76,4 +76,5 @@ Route::group(['middleware' => ['auth', 'is_admin']], function () {
 
     Route::get('/settings', [SettingsController::class, 'getSettings']);
     Route::get('/settings/setup', [SettingsController::class, 'firstSetup']);
+    Route::post('/settings/store/pagination', [SettingsController::class, 'savePaginationSettings']);
 });

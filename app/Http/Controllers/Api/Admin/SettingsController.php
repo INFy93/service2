@@ -35,6 +35,17 @@ class SettingsController extends Controller
 
     public function savePaginationSettings(Request $req)
     {
+        $set_pagination = new Setting();
 
+        $per_page = $req->per_page;
+        $enabled = $req->enabled;
+
+        $set_pagination->where('id', 1)
+        ->update([
+            'settings->pagination->per_page' => $per_page,
+            'settings->pagination->enabled' => $enabled
+        ]);
+
+        return $set_pagination; //отладка
     }
 }

@@ -16,10 +16,20 @@ export default function useSettings () {
         settings.value = response.data.data[0].settings;
     }
 
+    const storePaginationSettings = async() => {
+        await axios.post("/api/settings/store/pagination", {
+            enabled: settings.value.pagination.enabled,
+            per_page: settings.value.pagination.per_page
+        }).then(response => {
+            console.log(response.data)
+        })
+    }
+
     return {
         settings,
         pagination_variants,
-        getSettings
+        getSettings,
+        storePaginationSettings
     }
 
 }

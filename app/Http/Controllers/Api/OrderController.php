@@ -8,12 +8,13 @@ use App\Models\Order;
 use Illuminate\Http\Request;
 use App\Models\Story;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Setting;
 class OrderController extends Controller
 {
     public function getOrders()
     {
+        $set = Setting::where('id', 1)->pluck('settings');
         $search_term = request('search', '');
-
         $selected_service = request('selectedService', Auth::user()->service_id);
         $filter = $selected_service == 'all' ? '' : $selected_service;
 
@@ -28,7 +29,7 @@ class OrderController extends Controller
         })
         ->search(trim($search_term))
         ->orderBy('id', 'desc')
-        ->paginate(30);
+        ->paginate($set[0]['pagination']['per_page']);
 
         return OrdersResource::collection($orders);
     }

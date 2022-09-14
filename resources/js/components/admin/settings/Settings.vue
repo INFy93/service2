@@ -17,7 +17,7 @@
                             </div>
                         </td>
                     </tr>
-                    <tr>
+                    <tr v-if="settings.pagination.enabled">
                         <td>Количество выводимых записей</td>
                         <td><select
                         v-model="settings.pagination.per_page"
@@ -35,7 +35,9 @@
                     </tr>
                 </tbody>
             </table>
-            <a href="#" class="flex items-start w-36 space-x-1 mt-3 mb-3 bg-green-600 hover:bg-green-700 dark:bg-blue-900 text-base dark:hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg">
+            <a href="#"
+            @click="savePaginationSettings()"
+            class="flex items-start w-36 space-x-1 mt-3 mb-3 bg-green-600 hover:bg-green-700 dark:bg-blue-900 text-base dark:hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg">
                 <span>Сохранить</span>
             </a>
         </div>
@@ -104,16 +106,22 @@ import useSettings from "../../../composables/admin/settings/settings";
 import { onMounted } from "vue";
 export default {
     setup() {
-        const { settings, pagination_variants, getSettings } = useSettings();
+        const { settings, pagination_variants, getSettings, storePaginationSettings } = useSettings();
 
         onMounted(() => {
             getSettings();
         })
 
+        const savePaginationSettings = async () => {
+            await storePaginationSettings();
+            await getSettings();
+        }
+
         return {
             settings,
             pagination_variants,
-            getSettings
+            getSettings,
+            savePaginationSettings
         }
     },
 }
