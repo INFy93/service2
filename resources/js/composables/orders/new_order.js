@@ -16,6 +16,7 @@ export default function addNewOrder() {
             manager_id: user.id
         });
 
+
     const clientData = ref({});
     const show_client_data = ref(false);
     const toast = useToast();
@@ -60,23 +61,6 @@ export default function addNewOrder() {
         show_client_data.value = false
     }
 
-    function addMalfunction(event)
-    {
-        new_order.malfunction = event.target.innerHTML
-    }
-    function addComplection(event)
-    {
-        new_order.product_complection = event.target.innerHTML
-    }
-    function addModel(event)
-    {
-        new_order.model = event.target.innerHTML
-    }
-    function addProduct(event)
-    {
-        new_order.product = event.target.innerHTML
-    }
-
     return {
        user,
        new_order,
@@ -84,10 +68,6 @@ export default function addNewOrder() {
        show_client_data,
        searchLogins,
        autoComplete,
-       storeOrder,
-       addMalfunction,
-       addComplection,
-       addModel,
-       addProduct
+       storeOrder
     };
 }

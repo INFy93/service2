@@ -48,4 +48,12 @@ class SettingsController extends Controller
 
         return $set_pagination; //отладка
     }
+
+    public function test()
+    {
+        $set = Setting::where('id', 1)->pluck('settings')->toArray();
+        $set2 = config('defaults.settings');
+        //dd($set2->toArray());
+        dd(array_diff_assoc($set[0], $set2));
+    }
 }

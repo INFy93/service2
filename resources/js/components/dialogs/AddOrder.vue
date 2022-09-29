@@ -96,11 +96,12 @@
                                             class="block mb-2 text-sm font-semibold text-gray-900 dark:text-gray-300"
                                             >Тип устройства*</label
                                         >
-                                        <div class="flex space-x-2">
-                                                    <a href="#" @click="addProduct" class="text-sm text-blue-600 hover:underline">ПК</a>
-                                                    <a href="#" @click="addProduct" class="text-sm text-blue-600 hover:underline">Ноутбук</a>
-                                                    <a href="#" @click="addProduct" class="text-sm text-blue-600 hover:underline">Роутер</a>
-                                                    <a href="#" @click="addProduct" class="text-sm text-blue-600 hover:underline">Приставка</a>
+                                        <div  class="flex space-x-2">
+                                                    <a
+                                                    v-for="(device, index) in quickFill.devices"
+                                                    :key="index"
+                                                    href="#" @click="new_order.product = $event.target.innerHTML" class="text-sm text-blue-600 hover:underline">{{ device }}</a>
+
                                         </div>
                                         <Field name="product" type="text" v-model="new_order.product" placeholder="ПК, роутер..." class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"/>
                                         <ErrorMessage name="product" class="text-sm text-red-500"/>
@@ -114,34 +115,31 @@
                                          <div class="flex space-x-1">
                                             <span class="text-sm font-semibold">ПК:</span>
                                             <div class="flex space-x-2">
-                                                        <a href="#" @click="addModel" class="text-sm text-blue-600 hover:underline">Черный сис</a>
-                                                        <a href="#" @click="addModel" class="text-sm text-blue-600 hover:underline">Белый сис</a>
+                                                        <a href="#"
+                                                         v-for="(brand_pc, index) in quickFill.brands_pc"
+                                                        :key="index"
+                                                        @click="new_order.model = $event.target.innerHTML" class="text-sm text-blue-600 hover:underline">{{ brand_pc }}</a>
+
                                             </div>
                                          </div>
                                         <div class="flex space-x-1">
                                             <span class="text-sm font-semibold">Ноутбуки:</span>
                                             <div class="flex space-x-2">
-                                                        <a href="#" @click="addModel" class="text-sm text-blue-600 hover:underline">Asus</a>
-                                                        <a href="#" @click="addModel" class="text-sm text-blue-600 hover:underline">Acer</a>
-                                                        <a href="#" @click="addModel" class="text-sm text-blue-600 hover:underline">Lenovo</a>
-                                                        <a href="#" @click="addModel" class="text-sm text-blue-600 hover:underline">HP</a>
-                                                        <a href="#" @click="addModel" class="text-sm text-blue-600 hover:underline">MSI</a>
-                                                        <a href="#" @click="addModel" class="text-sm text-blue-600 hover:underline">Samsung</a>
-                                                        <a href="#" @click="addModel" class="text-sm text-blue-600 hover:underline">eMachines</a>
-                                                        <a href="#" @click="addModel" class="text-sm text-blue-600 hover:underline">Гравитон</a>
+                                                        <a href="#"
+                                                         v-for="(brand_notebook, index) in quickFill.brands_notebook"
+                                                        :key="index"
+                                                        @click="new_order.model = $event.target.innerHTML" class="text-sm text-blue-600 hover:underline">{{ brand_notebook }}</a>
+
                                             </div>
                                         </div>
                                         <div class="flex space-x-1">
                                             <span class="text-sm font-semibold">Роутеры:</span>
                                             <div class="flex space-x-2">
-                                                        <a href="#" @click="addModel" class="text-sm text-blue-600 hover:underline">TP-LINK</a>
-                                                        <a href="#" @click="addModel" class="text-sm text-blue-600 hover:underline">Mikrotik</a>
-                                                        <a href="#" @click="addModel" class="text-sm text-blue-600 hover:underline">Mercusys</a>
-                                                        <a href="#" @click="addModel" class="text-sm text-blue-600 hover:underline">Xiaomi</a>
-                                                        <a href="#" @click="addModel" class="text-sm text-blue-600 hover:underline">Asus</a>
-                                                        <a href="#" @click="addModel" class="text-sm text-blue-600 hover:underline">Zyxel</a>
-                                                        <a href="#" @click="addModel" class="text-sm text-blue-600 hover:underline">D-Link</a>
-                                                        <a href="#" @click="addModel" class="text-sm text-blue-600 hover:underline">Huawei</a>
+                                                        <a href="#"
+                                                         v-for="(brand_router, index) in quickFill.brands_routers"
+                                                        :key="index"
+                                                        @click="new_order.model = $event.target.innerHTML" class="text-sm text-blue-600 hover:underline">{{ brand_router }}</a>
+
                                             </div>
                                         </div>
                                         <Field name="model" type="text" v-model="new_order.model" placeholder="Asus, Acer, черный/белый сис..." class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"/>
@@ -162,11 +160,10 @@
                                             >Неисправность*</label
                                         >
                                         <div class="flex space-x-2">
-                                                    <a href="#" @click="addMalfunction" class="text-sm text-blue-600 hover:underline">Перенастройка ОС</a>
-                                                    <a href="#" @click="addMalfunction" class="text-sm text-blue-600 hover:underline">Черный экран</a>
-                                                    <a href="#" @click="addMalfunction" class="text-sm text-blue-600 hover:underline">Не включается</a>
-                                                    <a href="#" @click="addMalfunction" class="text-sm text-blue-600 hover:underline">Не загружается</a>
-                                                    <a href="#" @click="addMalfunction" class="text-sm text-blue-600 hover:underline">Настройка</a>
+                                                    <a href="#"
+                                                    v-for="(malfunction, index) in quickFill.malfunctions"
+                                                    :key="index"
+                                                    @click="new_order.malfunction = $event.target.innerHTML" class="text-sm text-blue-600 hover:underline">{{ malfunction }}</a>
                                         </div>
                                         <Field
                                             as="textarea"
@@ -199,16 +196,16 @@
                                             >Комплектация</label
                                         >
                                         <div class="flex space-x-2">
-                                                    <a href="#" @click="addComplection" class="text-sm text-blue-600 hover:underline">Роутер + бп</a>
-                                                    <a href="#" @click="addComplection" class="text-sm text-blue-600 hover:underline">Роутер без бп</a>
-                                                    <a href="#" @click="addComplection" class="text-sm text-blue-600 hover:underline">Роутер новый, в коробке</a>
+                                                    <a href="#"
+                                                    v-for="(complection_router, index) in quickFill.complections_router"
+                                                    :key="index"
+                                                    @click="new_order.product_complection = $event.target.innerHTML" class="text-sm text-blue-600 hover:underline">{{ complection_router }}</a>
                                         </div>
                                         <div class="flex space-x-2">
-                                                    <a href="#" @click="addComplection" class="text-sm text-blue-600 hover:underline">Ноут + зарядка</a>
-                                                    <a href="#" @click="addComplection" class="text-sm text-blue-600 hover:underline">Ноут + зарядка + сумка</a>
-                                                    <a href="#" @click="addComplection" class="text-sm text-blue-600 hover:underline">Ноут без зарядки</a>
-                                                    <a href="#" @click="addComplection" class="text-sm text-blue-600 hover:underline">Полная</a>
-                                                    <a href="#" @click="addComplection" class="text-sm text-blue-600 hover:underline">Со шнуром</a>
+                                                    <a href="#"
+                                                    v-for="(complection_other, index) in quickFill.complections_other"
+                                                    :key="index"
+                                                    @click="new_order.product_complection = $event.target.innerHTML" class="text-sm text-blue-600 hover:underline">{{ complection_other }}</a>
                                         </div>
                                         <Field
                                             as="textarea"
@@ -262,12 +259,13 @@
 import { ref } from "vue";
 import useDialogs from "../../composables/dialogs/dialogs"
 import addNewOrder from "../../composables/orders/new_order"
+import addQuickFillList from "../../composables/orders/quickFillList";
 import * as Yup from 'yup';
 export default {
     setup(props, { emit }) {
         const { isOpen, openModal, closeModal } = useDialogs();
-        const { new_order, clientData, show_client_data, addProduct, addMalfunction, addComplection, addModel, storeOrder, searchLogins, autoComplete } = addNewOrder();
-
+        const { new_order, clientData, show_client_data, storeOrder, searchLogins, autoComplete } = addNewOrder();
+        const { quickFill } = addQuickFillList();
         const schema = Yup.object({
             login: Yup.string().required("Необходимо ввести логин"),
             phone: Yup.string().required("Необходимо ввести телефон"),
@@ -288,15 +286,12 @@ export default {
            clientData,
            show_client_data,
            isOpen,
+           quickFill,
            openModal,
            closeModal,
            searchLogins,
            autoComplete,
-           addMalfunction,
-           addComplection,
-           addModel,
-           addProduct,
-           addOrder,
+           addOrder
         };
     }
 };
