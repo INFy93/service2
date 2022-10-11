@@ -18,6 +18,7 @@ export default function addQuickFillList() {
             "Acer",
             "Lenovo",
             "HP",
+            "Dell",
             "MSI",
             "Samsung",
             "eMachines",
