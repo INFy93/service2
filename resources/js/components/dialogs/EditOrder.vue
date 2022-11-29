@@ -285,10 +285,10 @@
                                                 >
                                                     <span>
                                                         <strong>
-                                                            <a href="#">{{
+                                                            {{
                                                                 event.statuses
                                                                     .name
-                                                            }}</a></strong
+                                                            }}</strong
                                                         >
                                                     </span>
                                                 </div>
