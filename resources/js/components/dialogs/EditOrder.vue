@@ -264,33 +264,93 @@
                                             </div>
 
                                             <span>
-                                                <i>{{ event.users.name }}</i> ->
+                                                <i>{{ event.users.name }}</i> [
                                                 {{
                                                     correctDate(
                                                         event.created_at
                                                     )
                                                 }}
+                                                ]
                                             </span>
                                             <div class="mt-3"></div>
                                         </div>
                                         <div v-else class="mt-2 mb-2">
-                                            <div class="block ml-auto mr-auto">
-                                                <span>
-                                                    <strong>{{
-                                                        event.statuses.name
-                                                    }}</strong>
-                                                </span>
-                                            </div>
+                                            <div
+                                            v-if="
+                                                        event.statuses
+                                                            .status_id == 9
+                                                    "
+                                            class="block ml-auto mr-auto">
+                                                <div class="block ml-auto mr-auto"
+                                                >
+                                                    <span>
+                                                        <strong>
+                                                            <a href="#">{{
+                                                                event.statuses
+                                                                    .name
+                                                            }}</a></strong
+                                                        >
+                                                    </span>
+                                                </div>
+                                                    <span>
+                                                        <i>{{
+                                                            event.users.name
+                                                        }}</i>
+                                                        [
+                                                        {{
+                                                            correctDate(
+                                                                event.created_at
+                                                            )
+                                                        }}
+                                                        ]
+                                                    </span>
+                                                    <div class="ml-4 mt-1">
+                                                        <div
+                                                            v-for="(
+                                                                elem, index
+                                                            ) in event.changes
+                                                                .old_data"
+                                                            :key="index"
+                                                        >
+                                                            <span
+                                                                >{{ elem }} ->
+                                                                {{
+                                                                    event.changes
+                                                                        .changed_data[
+                                                                        index
+                                                                    ]
+                                                                }}</span
+                                                            >
+                                                        </div>
+                                                    </div>
+                                                </div>
 
-                                            <span>
-                                                <i>{{ event.users.name }}</i> ->
-                                                {{
-                                                    correctDate(
-                                                        event.created_at
-                                                    )
-                                                }}
-                                            </span>
-                                        </div>
+                                                <div v-else class="mt-2 mb-2">
+                                                    <div
+                                                        class="block ml-auto mr-auto"
+                                                    >
+                                                        <span>
+                                                            <strong>{{
+                                                                event.statuses
+                                                                    .name
+                                                            }}</strong>
+                                                        </span>
+                                                    </div>
+
+                                                    <span>
+                                                        <i>{{
+                                                            event.users.name
+                                                        }}</i>
+                                                        [
+                                                        {{
+                                                            correctDate(
+                                                                event.created_at
+                                                            )
+                                                        }}
+                                                        ]
+                                                    </span>
+                                                </div>
+                                            </div>
                                     </div>
                                 </div>
                             </div>

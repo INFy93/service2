@@ -18,4 +18,9 @@ class Story extends Model
     {
         return $this->hasOne(User::class, 'id', 'user_id');
     }
+
+    public function changes()
+    {
+        return $this->hasOne(Change::class, 'edit_id', 'edit_id');
+    }
 }

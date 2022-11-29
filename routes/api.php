@@ -4,6 +4,7 @@ use App\Http\Controllers\Api\Admin\AdminController;
 use App\Http\Controllers\Api\Admin\OrdersCountController;
 use App\Http\Controllers\Api\Admin\SettingsController;
 use App\Http\Controllers\Api\Admin\UsersController;
+use App\Http\Controllers\Api\ChangesController;
 use App\Http\Controllers\Api\ClientController;
 use App\Http\Controllers\Api\OpenOrdersController;
 use App\Http\Controllers\Api\OrderController;
