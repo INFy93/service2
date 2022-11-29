@@ -39,6 +39,7 @@ Route::group(['middleware' => ['auth']], function () {
 
     Route::get('/story/{id}', [SingleOrder::class, 'getStory']);
     Route::get('/order/{id}', [SingleOrder::class, 'getSingleOrder']);
+    Route::get('/slug/{slug}', [SingleOrder::class, 'getAlias']);
     Route::post('/order', [SingleOrder::class, 'updateOrder']);
 
     Route::get('/services', [ServiceController::class, 'getServices']);

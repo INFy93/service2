@@ -312,8 +312,8 @@
                                                                 .old_data"
                                                             :key="index"
                                                         >
-                                                            <span
-                                                                >{{ elem == null ? '++ ' + index : elem }} ->
+                                                            <span v-if="elem == null"
+                                                                ><strong>[+] {{ slugs[index] }}</strong> ->
                                                                 {{
                                                                     event.changes
                                                                         .changed_data[
@@ -321,6 +321,15 @@
                                                                     ]
                                                                 }}</span
                                                             >
+                                                            <span v-else>
+                                                                {{ elem }} ->
+                                                                {{
+                                                                    event.changes
+                                                                        .changed_data[
+                                                                        index
+                                                                    ]
+                                                                }}
+                                                            </span>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -382,12 +391,14 @@ import { computed, ref } from "vue";
 import useDialogs from "../../composables/dialogs/dialogs";
 import useSingleOrder from "../../composables/orders/edit_order";
 import useHelpers from "../../composables/common/common";
+import useSlugs from "../../composables/common/slugs";
 import Print from "../../components/print/Print";
 export default {
     setup(props, { emit }) {
         const { isOpen, openModal, closeModal } = useDialogs();
         const { order, story, getSingleOrder, updateOrder } = useSingleOrder();
         const { correctDate } = useHelpers();
+        const { slugs } = useSlugs();
         const openEditDialog = (id) => {
             getSingleOrder(id);
             openModal();
@@ -399,10 +410,12 @@ export default {
             emit("update-event");
         };
 
+
         return {
             isOpen,
             order,
             story,
+            slugs,
             openModal,
             closeModal,
             getSingleOrder,

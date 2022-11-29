@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\OrdersResource;
 use App\Http\Resources\StoriesResource;
+use App\Models\Alias;
 use App\Models\Order;
 use Illuminate\Http\Request;
 use App\Models\Story;
