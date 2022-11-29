@@ -37,7 +37,6 @@ export default function useSingleOrder() {
     return {
         order,
         story,
-        changes,
         getSingleOrder,
         updateOrder
     };

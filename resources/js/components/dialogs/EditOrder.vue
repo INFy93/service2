@@ -313,7 +313,7 @@
                                                             :key="index"
                                                         >
                                                             <span
-                                                                >{{ elem }} ->
+                                                                >{{ elem == null ? '++ ' + index : elem }} ->
                                                                 {{
                                                                     event.changes
                                                                         .changed_data[

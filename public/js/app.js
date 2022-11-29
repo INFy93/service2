@@ -28585,7 +28585,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
                 )]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_47, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)(event.changes.old_data, function (elem, index) {
                   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", {
                     key: index
-                  }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(elem) + " -> " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(event.changes.changed_data[index]), 1
+                  }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(elem == null ? '++ ' + index : elem) + " -> " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(event.changes.changed_data[index]), 1
                   /* TEXT */
                   )]);
                 }), 128
@@ -30935,7 +30935,6 @@ function useSingleOrder() {
   return {
     order: order,
     story: story,
-    changes: changes,
     getSingleOrder: getSingleOrder,
     updateOrder: updateOrder
   };
