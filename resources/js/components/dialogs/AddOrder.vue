@@ -56,7 +56,7 @@
                                         >
                                         <Field name="login" type="text" v-model="new_order.client_login" @keyup="searchLogins" placeholder="Логин или имя клиента" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"/>
                                         <ErrorMessage name="login" class="text-sm text-red-500" />
-                                        <Menu>
+                                        <Menu ref="menuComponent">
                                             <MenuItems :static="show_client_data"
                                                 v-if="clientData.length"
                                                 class="absolute z-10 w-96 mt-1 origin-top-right bg-white divide-y divide-gray-100 rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
@@ -261,6 +261,7 @@ import useDialogs from "../../composables/dialogs/dialogs"
 import addNewOrder from "../../composables/orders/new_order"
 import addQuickFillList from "../../composables/orders/quickFillList";
 import * as Yup from 'yup';
+import useDetectOutsideClick from '../../composables/common/detectOutsideClick';
 export default {
     setup(props, { emit }) {
         const { isOpen, openModal, closeModal } = useDialogs();
@@ -279,6 +280,10 @@ export default {
             emit("add-event");
         }
 
+        const menuComponent = ref();
+        useDetectOutsideClick(menuComponent, () => {
+            show_client_data.value = false;
+        })
 
         return {
            new_order,
