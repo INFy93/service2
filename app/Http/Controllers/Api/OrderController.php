@@ -50,7 +50,7 @@ class OrderController extends Controller
 
         if ($req->status_id == '6')
         {
-            \Stuff::sendSMS(str_replace(array('(', ')', ' ', '-'), '', $order->client_phone), $req->rem_id);
+            \Stuff::sendSMS($order->client_phone, $req->rem_id);
         }
     }
 

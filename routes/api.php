@@ -82,4 +82,6 @@ Route::group(['middleware' => ['auth', 'is_admin']], function () {
     Route::get('/settings/setup', [SettingsController::class, 'firstSetup']);
     Route::post('/settings/store/pagination', [SettingsController::class, 'savePaginationSettings']);
     Route::get('/test/json', [SettingsController::class, 'test']);
+
+    Route::get('/fix', [\App\Http\Controllers\Api\Admin\RefactorController::class, 'fixNumbers']);
 });

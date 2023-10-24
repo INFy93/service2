@@ -87,7 +87,7 @@
                                             class="block mb-2 text-sm font-semibold text-gray-900 dark:text-gray-300"
                                             >Телефон*</label
                                         >
-                                        <Field name="phone" type="tel" v-model="new_order.client_phone" v-maska="'+7 (###) ###-##-##'" placeholder="+7 (xxx) xxx-xx-xx" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"/>
+                                        <Field name="phone" type="tel" v-model="new_order.client_phone"  placeholder="+7xxxxxxxxxx" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"/>
                                         <ErrorMessage name="phone" class="text-sm text-red-500"/>
                                     </div>
                                     <div class="mb-6">
@@ -267,9 +267,12 @@ export default {
         const { isOpen, openModal, closeModal } = useDialogs();
         const { new_order, clientData, show_client_data, storeOrder, searchLogins, autoComplete } = addNewOrder();
         const { quickFill } = addQuickFillList();
+        const phoneRegExp = /^(\+7)?[\s\-]?\(?[489][0-9]{2}?[\s\-]?[0-9]{3}[\s\-]?[0-9]{2}[\s\-]?[0-9]{2}$/
         const schema = Yup.object({
             login: Yup.string().required("Необходимо ввести логин"),
-            phone: Yup.string().required("Необходимо ввести телефон"),
+            phone: Yup.string()
+                .matches(phoneRegExp, 'Неверный формат номера. Номер должен быть без пробелов и с ПЛЮСОМ перед 7: +79780000000')
+                .required("Необходимо ввести телефон"),
             product: Yup.string().required("Необходимо ввести тип устройства"),
             model: Yup.string().required("Необходимо ввести модель"),
             malfunction: Yup.string().required("Необходимо ввести неисправность"),

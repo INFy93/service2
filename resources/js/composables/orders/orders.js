@@ -1,10 +1,11 @@
 import { reactive, ref } from "vue";
 import axios from "axios";
+import {useToast} from "vue-toastification";
 export default function useOrders() {
     const orders = ref([]);
     const user = window.Laravel.user;
     const search = ref("");
-
+    const toast = useToast();
     const services = ref([]);
     const selectedService = ref(user.is_admin == 1 ? 'all' : user.service_id);
 

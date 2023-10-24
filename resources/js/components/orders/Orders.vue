@@ -497,7 +497,7 @@
                   {{ order.client_login }}
                 </div>
                 <div class="text-sm leading-5 text-gray-500">
-                  {{ order.client_phone }}
+                  {{ nicePhone(order.client_phone) }}
                 </div>
               </div>
             </div>
@@ -549,7 +549,7 @@ export default {
     } = useOrders();
     const { checked, selectAll, selectPage, iWillHaveOrders, removeOrders } =
       useSelection();
-    const { correctDate, calcDiff, leadingZeros, declOfNum } = useHelpers();
+    const { correctDate, calcDiff, leadingZeros, declOfNum, nicePhone } = useHelpers();
 
     const timer = ref("");
 
@@ -634,6 +634,7 @@ export default {
       calcDiff,
       leadingZeros,
       declOfNum,
+      nicePhone,
       getOrders,
       deleteOrders,
       getServices,

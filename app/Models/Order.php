@@ -32,6 +32,7 @@ class Order extends Model
                 ->orWhere('model', 'like', $term)
                 ->orWhere('model_full_name', 'like', $term)
                 ->orWhere('code', 'like', $term)
+                ->orWhere('client_phone', 'like', $term)
                 ->orWhere('id', 'like', $term);
         });
     }
