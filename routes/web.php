@@ -26,6 +26,7 @@ Route::group(['middleware' => ['auth', 'blocked']], function () {
     Route::get('/logout', [LoginController::class, 'logout']);
     Route::view('/orders', 'orders')->name('main');
     Route::view('/profile', 'profile')->name('profile');
+    Route::view('/mac', 'mac')->name('mac');
 });
 
 Route::group(['middleware' => ['auth', 'is_admin', 'blocked'], 'prefix' => 'dashboard'], function () {

@@ -32,6 +32,8 @@ Route::get('/code', [ClientController::class, 'getOrderInfoByCode']);
 
 Route::group(['middleware' => ['auth']], function () {
 
+    Route::get('/mac/{mac}', [ClientController::class, 'getMacVendor']);
+
     Route::get('/orders', [OrderController::class, 'getOrders']);
     Route::post('/change_status', [OrderController::class, 'changeStatus']);
     Route::get('/search_client', [OrderController::class, 'searchLogin']);

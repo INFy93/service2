@@ -33,7 +33,8 @@ export default function addQuickFillList() {
             "Asus",
             "Zyxel",
             "D-Link",
-            "Huawei"
+            "Huawei",
+            "Tenda"
         ],
         malfunctions: [
             "Перенастройка ОС",

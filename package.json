@@ -28,6 +28,7 @@
     "dependencies": {
         "@headlessui/vue": "^1.6.7",
         "@heroicons/vue": "^1.0.6",
+        "cors": "^2.8.5",
         "laravel-vue-pagination": "^3.0.0",
         "latest": "^0.2.0",
         "maska": "^1.5.0",
