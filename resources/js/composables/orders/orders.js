@@ -37,8 +37,6 @@ export default function useOrders() {
                 showOnlyOpen.value
         );
         orders.value = response.data;
-
-        console.log(user);
     };
 
     const newStatus = async (status_id, order_id, user_service_id) => {
