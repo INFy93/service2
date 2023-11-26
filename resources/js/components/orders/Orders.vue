@@ -228,40 +228,40 @@
                                     class="absolute left-0 z-10 w-56 mt-2 origin-top-right bg-white divide-y divide-gray-100 rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
                                     <div class="px-1 py-1">
                                         <MenuItem>
-                                        <a @click="changeStatus(1, order.id, user.service_id)"
+                                        <a @click="changeStatus(1, order.id, order.service)"
                                             class="block px-4 py-2 text-sm text-gray-700 cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Новый</a>
                                         </MenuItem>
                                         <MenuItem>
-                                        <a @click="changeStatus(2, order.id, user.service_id)"
+                                        <a @click="changeStatus(2, order.id, order.service)"
                                             class="block px-4 py-2 text-sm text-gray-700 cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">В
                                             работе</a>
                                         </MenuItem>
                                     </div>
                                     <div class="px-1 py-1">
                                         <MenuItem>
-                                        <a @click="changeStatus(3, order.id, user.service_id)"
+                                        <a @click="changeStatus(3, order.id, order.service)"
                                             class="block px-4 py-2 text-sm text-gray-700 cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">На
                                             согласовании</a>
                                         </MenuItem>
                                         <MenuItem>
-                                        <a @click="changeStatus(4, order.id, user.service_id)"
+                                        <a @click="changeStatus(4, order.id, order.service)"
                                             class="block px-4 py-2 text-sm text-gray-700 cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Ждет
                                             запчасть</a>
                                         </MenuItem>
                                     </div>
                                     <div class="px-1 py-1">
                                         <MenuItem>
-                                        <a @click="changeStatus(5, order.id, user.service_id)"
+                                        <a @click="changeStatus(5, order.id, order.service)"
                                             class="block px-4 py-2 text-sm text-gray-700 cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Готов</a>
                                         </MenuItem>
                                         <MenuItem>
-                                        <a @click="changeStatus(6, order.id, user.service_id)"
+                                        <a @click="changeStatus(6, order.id, order.service)"
                                             class="block px-4 py-2 text-sm text-gray-700 cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Закрыт</a>
                                         </MenuItem>
                                     </div>
                                     <div class="px-1 py-1">
                                         <MenuItem>
-                                        <a @click="changeStatus(7, order.id, user.service_id)"
+                                        <a @click="changeStatus(7, order.id, order.service)"
                                             class="block px-4 py-2 text-sm text-gray-700 cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Отказ</a>
                                         </MenuItem>
                                     </div>
@@ -390,7 +390,7 @@ export default {
         };
 
         const changeStatus = async (status_id, order_id, user_service_id) => {
-            await newStatus(status_id, order_id);
+            await newStatus(status_id, order_id, user_service_id);
             await getOrders();
             await getOpenOrdersCount();
         };
