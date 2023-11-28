@@ -15,4 +15,11 @@ class ServiceController extends Controller
 
         return ServicesResource::collection($services);
     }
+
+    public function getService($id)
+    {
+        $service = Service::find($id);
+
+        return collect($service);
+    }
 }

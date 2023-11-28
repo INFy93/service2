@@ -45,6 +45,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('/order', [SingleOrder::class, 'updateOrder']);
 
     Route::get('/services', [ServiceController::class, 'getServices']);
+    Route::get('/service/{id}', [ServiceController::class, 'getService']);
 
     Route::get('/open_orders', [OpenOrdersController::class, 'getOpenOrders']);
 
@@ -57,11 +58,6 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('/user/edit', [ProfileController::class, 'storeUser']);
     Route::post('/user/new_password', [ProfileController::class, 'changePassword']);
 
-    Route::get('/st', function () {
-        Artisan::call('storage:link');
-
-        return Artisan::output();
-     });
 });
 
 Route::group(['middleware' => ['auth', 'is_admin']], function () {
