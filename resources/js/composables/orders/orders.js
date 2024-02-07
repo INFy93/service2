@@ -7,6 +7,7 @@ export default function useOrders() {
     const search = ref("");
     const toast = useToast();
     const services = ref([]);
+    const service = ref([]);
     const selectedService = ref(user.is_admin == 1 ? "all" : user.service_id);
 
     const openOrdersCount = ref("");
@@ -23,6 +24,14 @@ export default function useOrders() {
     const getServices = async () => {
         let response = await axios.get("/api/services");
         services.value = response.data.data;
+    };
+
+    const getService = async () => {
+        let response = await axios.get("/api/service/" + user.service_id);
+
+        service.value = response.data;
+
+        console.log(service.value);
     };
 
     const getOrders = async (page = 1) => {
@@ -61,12 +70,14 @@ export default function useOrders() {
         orders,
         search,
         services,
+        service,
         selectedService,
         openOrdersCount,
         showOnlyOpen,
         getOrders,
         newStatus,
         getServices,
+        getService,
         getOpenOrdersCount,
         onlyOpen,
         user,

@@ -3,7 +3,7 @@
 @tailwind utilities;
 html, body
 {
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !important
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !important;
 }
   /* Custom style */
   .header-right {
@@ -18,17 +18,23 @@ html, body
     }
 }
 .pagination {
-   @apply relative mt-2 right-0 z-0 inline-flex rounded-md shadow-sm -space-x-px
+   @apply relative right-0 z-0 inline-flex mt-2 -space-x-px rounded-md shadow-sm;
 }
 .page-link {
-    @apply bg-white border-gray-300 text-gray-500 hover:bg-gray-100 hidden md:inline-flex relative items-center px-4 py-2 border text-sm font-medium
+    @apply relative items-center hidden px-4 py-2 text-sm font-medium text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 md:inline-flex;
 }
 .active a{
-    @apply bg-gray-100
+    @apply bg-gray-100;
 }
 .sr-only {
-    @apply hidden
+    @apply hidden;
 }
 .number {
     width: 10% !important;
+}
+@media print {
+    .pagebreak {
+        clear: both;
+        page-break-after: always;
+    }
 }

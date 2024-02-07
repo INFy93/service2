@@ -33,7 +33,8 @@
                                     </button>
                                 </div>
                                 <div id="printMe" v-if="order.client_login" class="hidden">
-                                    <print-order :userdata="order" />
+                                    <print-order :userdata="order" :serviceAddress="service.address"
+                                        :userName="user.name" />
                                 </div>
                             </div>
                             <Form @submit="editOrder(order.id)" :validation-schema="schema">
@@ -260,20 +261,23 @@
 import { computed, ref } from "vue";
 import { useForm } from 'vee-validate';
 import useDialogs from "../../composables/dialogs/dialogs";
+import useOrders from "../../composables/orders/orders";
 import useSingleOrder from "../../composables/orders/edit_order";
 import useHelpers from "../../composables/common/common";
 import useSlugs from "../../composables/common/slugs";
-import Print from "../../components/print/Print";
+import Print from "../../components/print/Print.vue";
 import * as Yup from 'yup';
 export default {
     setup(props, { emit }) {
         const { isOpen, openModal, closeModal } = useDialogs();
         const { order, story, getSingleOrder, updateOrder } = useSingleOrder();
+        const { getService, service, user } = useOrders();
         const { correctDate } = useHelpers();
         const { slugs } = useSlugs();
 
         const openEditDialog = (id) => {
             getSingleOrder(id);
+            getService();
             openModal();
         };
 
@@ -304,6 +308,8 @@ export default {
             story,
             slugs,
             schema,
+            service,
+            user,
             openModal,
             closeModal,
             getSingleOrder,
