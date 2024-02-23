@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Providers;
 
 use App\MoonShine\Resources\OrderResource;
+use App\MoonShine\Resources\ServiceResource;
 use MoonShine\Providers\MoonShineApplicationServiceProvider;
 use MoonShine\MoonShine;
 use MoonShine\Menu\MenuGroup;
@@ -29,6 +30,7 @@ class MoonShineServiceProvider extends MoonShineApplicationServiceProvider
         return [
 
             MenuItem::make('Заказы', new OrderResource()),
+            MenuItem::make('Сервисы', new ServiceResource()),
 
             MenuGroup::make(static fn() => __('moonshine::ui.resource.system'), [
                MenuItem::make(
